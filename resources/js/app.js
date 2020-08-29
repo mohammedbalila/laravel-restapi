@@ -12,14 +12,14 @@ import Vue from "vue";
 import VueInternationalization from "vue-i18n";
 import VueRouter from "vue-router";
 import Vuetify from "vuetify";
-import VueAwesomeSwiper from 'vue-awesome-swiper'
+import VueAwesomeSwiper from "vue-awesome-swiper";
 
 // // import style
 // import 'swiper/css/swiper.css'
 // // If you use Swiper 6.0.0 or higher
 // import 'swiper/swiper-bundle.css'
 
-Vue.use(VueAwesomeSwiper, /* { default options with global component } */)
+Vue.use(VueAwesomeSwiper /* { default options with global component } */);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -31,8 +31,6 @@ import store from "./store";
 
 Vue.use(Vuetify);
 Vue.use(VueRouter);
-
-
 
 Vue.use(VueInternationalization);
 const lang = localStorage.getItem("locale") || "en";
@@ -73,95 +71,113 @@ const messages = {
             SUBSCRIBE: "Join Us",
             others: "Others",
             company: "Company",
-            Limitworks:"LIMITED ARTWORKS",
+            Limitworks: "LIMITED ARTWORKS",
             name: "Your Name",
             email: "Your Email",
             phone: "Your Phone",
             submit: "Submit",
             // productslider
-            size:"Size",
-            productDetails:"Product Details ",
-            shipping:"Shipping",
-            left:"Left",
-            imgdetails:"Img Details",
-            limitedEdition:"Limited Edition",
+            size: "Size",
+            productDetails: "Product Details ",
+            shipping: "Shipping",
+            left: "Left",
+            imgdetails: "Img Details",
+            limitedEdition: "Limited Edition",
 
-
-        //    cart
-            checkout:"CheckOut",
-            total:"Total Price",
-            remove:"Remove ",
-            cartname:"Cart",
+            //    cart
+            checkout: "CheckOut",
+            total: "Total Price",
+            remove: "Remove ",
+            cartname: "Cart",
 
             // footer
-            logo:"Naqsh",
-            lorem:"lorem text",
+            logo: "Naqsh",
+            lorem: "lorem text",
             // Payment
-            email:"E-mail",
-            firstname:"First Name",
-            lastname:"Last Name",
-            address:"Address",
-            appartment:"Apartment, Suite, etc. (optional)",
-            city:"City",
-            phone:"Phone",
-            postcode:"Post Code ",
-            discount:"Discount",
-            Aplly:"APPLY",
-            subtotal:"Sub Total",
-            total:"Total",
-            calulated:"Calculated at next",
-            toshipping:"Continue to Shipping",
-            select_size:'Please Select Size',
-            showorder:'Show Order Summary',
-            hideorder:'Hide Order Summary',
-            empty:'      ',
+            email: "E-mail",
+            firstname: "First Name",
+            lastname: "Last Name",
+            address: "Address",
+            appartment: "Apartment, Suite, etc. (optional)",
+            city: "City",
+            phone: "Phone",
+            postcode: "Post Code ",
+            discount: "Discount",
+            Aplly: "APPLY",
+            subtotal: "Sub Total",
+            total: "Total",
+            calulated: "Calculated at next",
+            toshipping: "Continue to Shipping",
+            select_size: "Please Select Size",
+            showorder: "Show Order Summary",
+            hideorder: "Hide Order Summary",
+            empty: "      ",
             // Start Footer
-            addressfooter:'Naqsh BV. Westplein 123016BM RotterdamThe Netherlands',
-            shopfooter:'Shop artworks',
-            aboutfooter:'About our products',
-            carreerfooter:'Careers',
-            aboutusfooter:'Our Mission',
-            artistfooter:'Our Artists',
-            contactfooter:'Contact us',
-            termsfooter:'Terms of use',
-            privacyfooter:'Privacy Policy',
-            refundpolicy:'Refund Policy',
-            socialLink:'SocialLink',
-            solidout:'SOLD OUT',
-            support:'Support',
-            support_text:'Do you have any questions? Have a look at the categories below, and if these dont include the answer you were looking for, please feel free to shoot us an email.',
-            Product:'Product',
-            Shipping:'Shipping',
-            Collabs:'Collabs',
-            contact:'Contact',
-            product_text1:'What are Walltones?',
-            product_text2:'What are Knitworks?',
-            product_text3:'How do I assemble my Walltone?',
-            product_text4:'How do I assemble my Knitwork?',
-            product_text5:'What are the exact dimensions/materials of my artwork?',
-            product_text6:'I need any tools to hang my artwork?',
-            product_text7:'Walltones are our affordable and easy to hang canvas posters. They come in three different sizes, always complete with a special magnetic frame. Each Walltone is part of a limited edition.',
-            product_text8:'Knitworks are luxurious artworks on fabric, often using a combination of printing and painting techniques. The fabric is stretchedinto a sturdy metal frame. Like Walltones, they are always part of a limited edition.',
-            product_text9:'Align the pairs of magnetic frames with the top and bottom of your artwork.The included adhesive strips or screw can be used to stick only the top frame, or both frames to your wall.',
-            product_text10:'You can find Knitwork assembly instructions on the manual inside the box.',
-            product_text11:'When you buy an artwork, you can find the specifications in the dropdown menus underneath the product description. If you have any questions not answered in there, feel free to ask us.',
-            product_text12:'If the included adhesive strips are not suitable for your wall,you can use the included screw and plug. Only when using the screw and plug you will need a drill and screwdriver.',
-            ship_text1:'Do you ship to my country?',
-            ship_text2:'What about returns and shipping time?',
-            ship_text3:'We ship worldwide. If you are worried that your country might not accept our products because of regulation or customs policies, please send us an email explaining the situation and we will try to find out what is the best solution.',
-            ship_text4:'After placing your order, the whole process of preparing, packing and shipping to your doorstep can take approximately 15 business days depending on your location. Orders get sent out within 24 hours on average, after which you wont be able to cancel our order since the package will already be in transit. You can however, return your package for a full refund within 30 days.',
-            Collabs_text1:'I am an artist, how can we work together?',
-            Collabs_text2:'I am an influencer, how can we work together?',
-            Collabs_text3:'Awesome! Please send us an email with a link to your portfolio, instagram,or any other media you want us to review. We will be happy to take a look.',
-            Collabs_text4:'We dont work with a lot of influencers, but if you connect with an audience that you think would love our brand, we are very open to talk about it. Please shoot us an email!',
-            Terms:'Terms',
-            Terms_text1:'What are the terms of this website?',
-            Terms_text2:'How do you treat my privacy?',
-            Terms_text3:'How can I get a refund?',
-            Terms_text4:'Read our terms',
-            Terms_text5:'Read our Privacy Policy',
-            Terms_text6:'Read our Refund Policy',
-            noitem:'There are no products. Please add an entry to complete the process!!',
+            addressfooter:
+                "Naqsh BV. Westplein 123016BM RotterdamThe Netherlands",
+            shopfooter: "Shop artworks",
+            aboutfooter: "About our products",
+            carreerfooter: "Careers",
+            aboutusfooter: "Our Mission",
+            artistfooter: "Our Artists",
+            contactfooter: "Contact us",
+            termsfooter: "Terms of use",
+            privacyfooter: "Privacy Policy",
+            refundpolicy: "Refund Policy",
+            socialLink: "SocialLink",
+            solidout: "SOLD OUT",
+            support: "Contact Us",
+            support_text:
+                "Do you have any questions? Have a look at the categories below, and if these dont include the answer you were looking for, please feel free to shoot us an email.",
+            Product: "Product",
+            Shipping: "Shipping",
+            Collabs: "Collabs",
+            contact: "Contact",
+            product_text1: "What are Walltones?",
+            product_text2: "What are Knitworks?",
+            product_text3: "How do I assemble my Walltone?",
+            product_text4: "How do I assemble my Knitwork?",
+            product_text5:
+                "What are the exact dimensions/materials of my artwork?",
+            product_text6: "I need any tools to hang my artwork?",
+            product_text7:
+                "Walltones are our affordable and easy to hang canvas posters. They come in three different sizes, always complete with a special magnetic frame. Each Walltone is part of a limited edition.",
+            product_text8:
+                "Knitworks are luxurious artworks on fabric, often using a combination of printing and painting techniques. The fabric is stretchedinto a sturdy metal frame. Like Walltones, they are always part of a limited edition.",
+            product_text9:
+                "Align the pairs of magnetic frames with the top and bottom of your artwork.The included adhesive strips or screw can be used to stick only the top frame, or both frames to your wall.",
+            product_text10:
+                "You can find Knitwork assembly instructions on the manual inside the box.",
+            product_text11:
+                "When you buy an artwork, you can find the specifications in the dropdown menus underneath the product description. If you have any questions not answered in there, feel free to ask us.",
+            product_text12:
+                "If the included adhesive strips are not suitable for your wall,you can use the included screw and plug. Only when using the screw and plug you will need a drill and screwdriver.",
+            ship_text1: "Do you ship to my country?",
+            ship_text2: "What about returns and shipping time?",
+            ship_text3:
+                "We ship worldwide. If you are worried that your country might not accept our products because of regulation or customs policies, please send us an email explaining the situation and we will try to find out what is the best solution.",
+            ship_text4:
+                "After placing your order, the whole process of preparing, packing and shipping to your doorstep can take approximately 15 business days depending on your location. Orders get sent out within 24 hours on average, after which you wont be able to cancel our order since the package will already be in transit. You can however, return your package for a full refund within 30 days.",
+            Collabs_text1: "I am an artist, how can we work together?",
+            Collabs_text2: "I am an influencer, how can we work together?",
+            Collabs_text3:
+                "Awesome! Please send us an email with a link to your portfolio, instagram,or any other media you want us to review. We will be happy to take a look.",
+            Collabs_text4:
+                "We dont work with a lot of influencers, but if you connect with an audience that you think would love our brand, we are very open to talk about it. Please shoot us an email!",
+            Terms: "Terms",
+            Terms_text1: "What are the terms of this website?",
+            Terms_text2: "How do you treat my privacy?",
+            Terms_text3: "How can I get a refund?",
+            Terms_text4: "Read our terms",
+            Terms_text5: "Read our Privacy Policy",
+            Terms_text6: "Read our Refund Policy",
+            noitem:
+                "There are no products. Please add an entry to complete the process!!",
+            Print_material: "Print material:",
+            Print_ink: "Print ink:",
+            Print_finish: "Print finish:",
+            Frame_material: "Frame material:",
+            Frame_finish: "Frame finish:"
         }
     },
     ar: {
@@ -177,7 +193,7 @@ const messages = {
             shopnow: "اشتري اﻷن",
             newrelease: "إصدار جديد",
             newreleaseheader: "إصدار هذا الأسبوع من الأعمال الفنية المحدودة",
-            readless:"إقرأ أقل",
+            readless: "إقرأ أقل",
             readmore: "إقرأ أكثر",
             ourmission: "مهمتنا",
             ourmissiontext1:
@@ -197,7 +213,7 @@ const messages = {
             signup:
                 "قم بالتسجيل للحصول على إشعار بالبريد الإلكتروني عند إصدار أعمال فنية محدودة جديدة.",
             Newsletter: " النشرة الإخبارية",
-            SUBSCRIBE: "إشتراك",
+            SUBSCRIBE: "انضم الينا",
             others: "اﻷخرين",
             company: "الشركه",
             Limitworks: "أعمال محدودة",
@@ -206,88 +222,106 @@ const messages = {
             phone: "رقم تليفونك",
             submit: "إرسال",
 
-                // productslider
-                size:"الحجم",
-                productDetails:" تفاصيل المنتج",
-                shipping:"الشحن",
-                left:"المتبقى",
-                imgdetails:"تفاصيل المنتج",
-                limitedEdition:"الطبعات المحدودة",
-                DescriptionEdition:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae fugit minima nemo corporis eligendi voluptas quidem eius suscipit dignissimos recusandae soluta alias, provident ipsum officia, tempore laboriosam neque esse cupiditate!",
+            // productslider
+            size: "الحجم",
+            productDetails: " تفاصيل المنتج",
+            shipping: "الشحن",
+            left: "المتبقى",
+            imgdetails: "تفاصيل المنتج",
+            limitedEdition: "الطبعات المحدودة",
+            DescriptionEdition:
+                "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae fugit minima nemo corporis eligendi voluptas quidem eius suscipit dignissimos recusandae soluta alias, provident ipsum officia, tempore laboriosam neque esse cupiditate!",
             // cart translation
-            checkout:"شراء الان",
-            total:"الحساب الإجمالى",
-            remove:"حذف",
-            cartname:"السلة",
+            checkout: "شراء الان",
+            total: "الحساب الإجمالى",
+            remove: "حذف",
+            cartname: "السلة",
             // footer
-            logo:"نقش",
-            lorem :"نص تجريبى ",
-             // Payment
-             email:"البريد الإلكترونى",
-             firstname:"الاسم الأول ",
-             lastname:"الاسم الأخير",
-             address:"العنوان",
-             appartment:"طاقم العمل ",
-             city:"المدينه",
-             phone:"رقم الموبايل",
-             postcode:"الرمز البريدى",
-             discount:"الخصم",
-             Aplly:"الحصول",
-             subtotal:"الخصم",
-             total:"السعر الإجمالى",
-             calulated:"الحساب سيتم الكرة القادة ",
-             toshipping:"متابعة الشراء",
-             select_size:'من فضلك اختر الحجم',
-             showorder:' إظهار ملخص الطلب',
-             hideorder:' إخفاء ملخص الطلب',
-             empty:'      ',
+            logo: "نقش",
+            lorem: "نص تجريبى ",
+            // Payment
+            email: "البريد الإلكترونى",
+            firstname: "الاسم الأول ",
+            lastname: "الاسم الأخير",
+            address: "العنوان",
+            appartment: "طاقم العمل ",
+            city: "المدينه",
+            phone: "رقم الموبايل",
+            postcode: "الرمز البريدى",
+            discount: "الخصم",
+            Aplly: "الحصول",
+            subtotal: "الخصم",
+            total: "السعر الإجمالى",
+            calulated: "الحساب سيتم الكرة القادة ",
+            toshipping: "متابعة الشراء",
+            select_size: "من فضلك اختر الحجم",
+            showorder: " إظهار ملخص الطلب",
+            hideorder: " إخفاء ملخص الطلب",
+            empty: "      ",
             //  Start Footer
-             addressfooter:'Naqsh BV. Westplein 123016BM RotterdamThe Netherlands',
-             shopfooter:'تسوق الأعمال الفنية',
-             aboutfooter:'حول منتجاتنا',
-             carreerfooter:'وظائف',
-             aboutusfooter:'معلومات عنا',
-             artistfooter:'الفنانون',
-             contactfooter:'اتصل بنا',
-             termsfooter:'شروط الاستخدام',
-             privacyfooter:'سياسة خاصة',
-             refundpolicy:'سياسة الاسترجاع',
-             socialLink:'رابط التواصل اﻷجتماعي',
-             solidout:'نفذت الكميه',
-             support:'ألدعم',
-             support_text:' هل لديك اسئلة؟ ألق نظرة على الفئات أدناه ، وإذا كانت لا تتضمن الإجابة التي كنت تبحث عنها ، فلا تتردد في إرسال بريد إلكتروني إلينا.',
-             Product:'المنتج',
-             Shipping:'الشحن',
-             Collabs:'تعاون',
-             contact:'اتصل بنا',
-             product_text1:' ؟ Walltones ما هو',
-             product_text2:'؟ Knitworks ما هو',
-             product_text3:'كيف اقوم بتجميع نغمه walltone الخاصه بي ؟',
-             product_text4:'  كيف أقوم بتجميع Knitwork الخاص بي؟',
-             product_text5:'ما هي الأبعاد / المواد الدقيقة لأعمالي الفنية؟',
-             product_text6:'أحتاج إلى أي أدوات لتعليق أعمالي الفنية؟',
-             product_text7:'Walltones هي ملصقاتنا بأسعار معقولة وسهلة التعليق. تأتي في ثلاثة أحجام مختلفة ، كاملة دائمًا بإطار مغناطيسي خاص. كل Walltone جزء من إصدار محدود.',
-             product_text8:' أعمال التريكو هي أعمال فنية فاخرة على القماش ، غالبًا ما تستخدم مزيجًا من تقنيات الطباعة والطلاء. تمدد القماش في إطار معدني قوي. مثل Walltones ، فهي دائمًا جزء من إصدار محدود.',
-             product_text9:' قم بمحاذاة أزواج الإطارات المغناطيسية مع الجزء العلوي والسفلي من عملك الفني. يمكن استخدام الشرائط اللاصقة أو اللولب المتضمن في لصق الإطار العلوي فقط ، أو كلا الإطارين على الحائط.',
-             product_text10:' يمكنك العثور على تعليمات تجميع Knitwork في الدليل الموجود داخل الصندوق.',
-             product_text11:' عند شراء عمل فني ، يمكنك العثور على المواصفات في القوائم المنسدلة أسفل وصف المنتج. إذا كانت لديك أية أسئلة لم تتم الإجابة عليها ، فلا تتردد في طرحها علينا.',
-             product_text12:' إذا كانت الشرائط اللاصقة المرفقة غير مناسبة لجدارك ، يمكنك استخدام المسمار والمكونات المدرجة. ستحتاج إلى مثقاب ومفك فقط عند استخدام المسمار والمقبس.',
-             ship_text1:'هل تشحن إلى بلدي؟',
-             ship_text2:'ماذا عن المرتجعات ووقت الشحن؟',
-             ship_text3:' نحن نشحن عالميا. إذا كنت قلقًا من أن بلدك قد لا يقبل منتجاتنا لأن التنظيم أو السياسات الجمركية ، يرجى إرسال بريد إلكتروني إلينا لشرح الوضع وسنقوم بذلك حاول معرفة الحل الأفضل.',
-             ship_text4:' بعد وضع طلبك ، تتم عملية التحضير والتعبئة والشحن بأكملها إلى باب منزلك يمكن أن يستغرق ما يقرب من 15 يوم عمل حسب موقعك. يتم إرسال الطلبات في غضون 24 ساعة في المتوسط ​​، وبعد ذلك لن تتمكن من الإلغاء نظامنا لأن الحزمة ستكون بالفعل في العبور. ومع ذلك ، يمكنك إرجاع حزمة لاسترداد كامل في غضون 30 يوما.',
-             Collabs_text1:'أنا فنان ، كيف يمكننا العمل معًا؟ ',
-             Collabs_text2:'أنا مؤثر ، كيف يمكننا العمل معًا؟',
-             Collabs_text3:' ممتاز! يرجى إرسال بريد إلكتروني إلينا مع رابط لمحفظتك ، إنستجرام ، أو أي وسائط أخرى تريد منا مراجعتها. سنكون سعداء لإلقاء نظرة.',
-             Collabs_text4:' نحن لا نعمل مع الكثير من المؤثرين ، ولكن إذا تواصلت مع جمهور التي تعتقد أنها ستحب علامتنا التجارية ، نحن منفتحون جدًا للحديث عنها. يرجى مراسلتنا عبر البريد الإلكتروني!',
-             Terms:'الشروط',
-             Terms_text1:'ما هي شروط الموقع',
-             Terms_text2:'كيف تتعامل مع خصوصيتك',
-             Terms_text3:'كيف يمكنني استرداد اﻷموال',
-             Terms_text4:'اقرأ شروط الموقع',
-             Terms_text5:'اقرأ سياسة الخصوصية',
-             Terms_text6:'اقرأ سياسة اﻷسترداد',
-             noitem:'!! لا يوجد منتجات. الرجاء إضافة منتج لإكمال العملية'
+            addressfooter:
+                "Naqsh BV. Westplein 123016BM RotterdamThe Netherlands",
+            shopfooter: "تسوق الأعمال الفنية",
+            aboutfooter: "حول منتجاتنا",
+            carreerfooter: "وظائف",
+            aboutusfooter: "معلومات عنا",
+            artistfooter: "الفنانون",
+            contactfooter: "اتصل بنا",
+            termsfooter: "شروط الاستخدام",
+            privacyfooter: "سياسة خاصة",
+            refundpolicy: "سياسة الاسترجاع",
+            socialLink: "رابط التواصل اﻷجتماعي",
+            solidout: "نفذت الكميه",
+            support: "تواصل معنا",
+            support_text:
+                " هل لديك اسئلة؟ ألق نظرة على الفئات أدناه ، وإذا كانت لا تتضمن الإجابة التي كنت تبحث عنها ، فلا تتردد في إرسال بريد إلكتروني إلينا.",
+            Product: "المنتج",
+            Shipping: "الشحن",
+            Collabs: "تعاون",
+            contact: "اتصل بنا",
+            product_text1: " ؟ Walltones ما هو",
+            product_text2: "؟ Knitworks ما هو",
+            product_text3: "كيف اقوم بتجميع نغمه walltone الخاصه بي ؟",
+            product_text4: "  كيف أقوم بتجميع Knitwork الخاص بي؟",
+            product_text5: "ما هي الأبعاد / المواد الدقيقة لأعمالي الفنية؟",
+            product_text6: "أحتاج إلى أي أدوات لتعليق أعمالي الفنية؟",
+            product_text7:
+                "Walltones هي ملصقاتنا بأسعار معقولة وسهلة التعليق. تأتي في ثلاثة أحجام مختلفة ، كاملة دائمًا بإطار مغناطيسي خاص. كل Walltone جزء من إصدار محدود.",
+            product_text8:
+                " أعمال التريكو هي أعمال فنية فاخرة على القماش ، غالبًا ما تستخدم مزيجًا من تقنيات الطباعة والطلاء. تمدد القماش في إطار معدني قوي. مثل Walltones ، فهي دائمًا جزء من إصدار محدود.",
+            product_text9:
+                " قم بمحاذاة أزواج الإطارات المغناطيسية مع الجزء العلوي والسفلي من عملك الفني. يمكن استخدام الشرائط اللاصقة أو اللولب المتضمن في لصق الإطار العلوي فقط ، أو كلا الإطارين على الحائط.",
+            product_text10:
+                " يمكنك العثور على تعليمات تجميع Knitwork في الدليل الموجود داخل الصندوق.",
+            product_text11:
+                " عند شراء عمل فني ، يمكنك العثور على المواصفات في القوائم المنسدلة أسفل وصف المنتج. إذا كانت لديك أية أسئلة لم تتم الإجابة عليها ، فلا تتردد في طرحها علينا.",
+            product_text12:
+                " إذا كانت الشرائط اللاصقة المرفقة غير مناسبة لجدارك ، يمكنك استخدام المسمار والمكونات المدرجة. ستحتاج إلى مثقاب ومفك فقط عند استخدام المسمار والمقبس.",
+            ship_text1: "هل تشحن إلى بلدي؟",
+            ship_text2: "ماذا عن المرتجعات ووقت الشحن؟",
+            ship_text3:
+                " نحن نشحن عالميا. إذا كنت قلقًا من أن بلدك قد لا يقبل منتجاتنا لأن التنظيم أو السياسات الجمركية ، يرجى إرسال بريد إلكتروني إلينا لشرح الوضع وسنقوم بذلك حاول معرفة الحل الأفضل.",
+            ship_text4:
+                " بعد وضع طلبك ، تتم عملية التحضير والتعبئة والشحن بأكملها إلى باب منزلك يمكن أن يستغرق ما يقرب من 15 يوم عمل حسب موقعك. يتم إرسال الطلبات في غضون 24 ساعة في المتوسط ​​، وبعد ذلك لن تتمكن من الإلغاء نظامنا لأن الحزمة ستكون بالفعل في العبور. ومع ذلك ، يمكنك إرجاع حزمة لاسترداد كامل في غضون 30 يوما.",
+            Collabs_text1: "أنا فنان ، كيف يمكننا العمل معًا؟ ",
+            Collabs_text2: "أنا مؤثر ، كيف يمكننا العمل معًا؟",
+            Collabs_text3:
+                " ممتاز! يرجى إرسال بريد إلكتروني إلينا مع رابط لمحفظتك ، إنستجرام ، أو أي وسائط أخرى تريد منا مراجعتها. سنكون سعداء لإلقاء نظرة.",
+            Collabs_text4:
+                " نحن لا نعمل مع الكثير من المؤثرين ، ولكن إذا تواصلت مع جمهور التي تعتقد أنها ستحب علامتنا التجارية ، نحن منفتحون جدًا للحديث عنها. يرجى مراسلتنا عبر البريد الإلكتروني!",
+            Terms: "الشروط",
+            Terms_text1: "ما هي شروط الموقع",
+            Terms_text2: "كيف تتعامل مع خصوصيتك",
+            Terms_text3: "كيف يمكنني استرداد اﻷموال",
+            Terms_text4: "اقرأ شروط الموقع",
+            Terms_text5: "اقرأ سياسة الخصوصية",
+            Terms_text6: "اقرأ سياسة اﻷسترداد",
+            noitem: "!! لا يوجد منتجات. الرجاء إضافة منتج لإكمال العملية",
+            Print_material: "خامات الطباعة",
+            Print_ink: "حبر الطباعة",
+            Print_finish: "اللمسة النهائية للطباعة",
+            Frame_material: "معدن الاطار",
+            Frame_finish: "اللمسة النهائية للاطار"
         }
     }
 };
@@ -307,7 +341,6 @@ const i18n = new VueInternationalization({
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component("AppHome", require("./components/AppHome.vue").default);
-
 
 const app = new Vue({
     el: "#app",

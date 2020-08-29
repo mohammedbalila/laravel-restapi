@@ -6,11 +6,12 @@ use App\Models\Palette;
 use App\Repositories\BaseRepository;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+
 /**
  * Class PaletteRepository
  * @package App\Repositories
  * @version June 17, 2020, 4:50 pm UTC
-*/
+ */
 
 class PaletteRepository extends BaseRepository
 {
@@ -37,7 +38,17 @@ class PaletteRepository extends BaseRepository
         'print_finish',
         'frame_material',
         'frame_finish',
-        'artist_id'
+        'artist_id',
+        'sizing_details_ar',
+        'print_material_ar',
+        'print_ink_ar',
+        'print_finish_ar',
+        'frame_material_ar',
+        'frame_finish_ar',
+        'description',
+        'description_ar',
+        'shipping',
+        'shipping_ar',
     ];
 
     /**
@@ -58,12 +69,13 @@ class PaletteRepository extends BaseRepository
         return Palette::class;
     }
 
-    public function createPalette(Request $request){
+    public function createPalette(Request $request)
+    {
         $file = $request->file('img');
         $originalName = $file->getClientOriginalName();
         $extension = $file->getClientOriginalExtension();
 
-        $path = 'images/'.uniqid().'.'.$extension;
+        $path = 'images/' . uniqid() . '.' . $extension;
         $img = Image::make($file);
         $img->save(public_path($path));
         $input = $request->all();
@@ -71,18 +83,19 @@ class PaletteRepository extends BaseRepository
 
         return $this->create($input);
     }
-    public function updatePalette(Request $request, $id){
+    public function updatePalette(Request $request, $id)
+    {
         $input = $request->all();
         $file = $request->file('img');
 
-        if($file){
-        $originalName = $file->getClientOriginalName();
-        $extension = $file->getClientOriginalExtension();
+        if ($file) {
+            $originalName = $file->getClientOriginalName();
+            $extension = $file->getClientOriginalExtension();
 
-        $path = 'images/'.uniqid().'.'.$extension;
-        $img = Image::make($file);
-        $img->save(public_path($path));
-        $input['img'] = $path;
+            $path = 'images/' . uniqid() . '.' . $extension;
+            $img = Image::make($file);
+            $img->save(public_path($path));
+            $input['img'] = $path;
         }
         return $this->update($input, $id);
     }

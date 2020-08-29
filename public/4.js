@@ -172,6 +172,77 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -203,13 +274,13 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    if (this.$route.query.mydata == 'artist') {
+    if (this.$route.query.mydata == "artist") {
       this.artist = true;
       this.mission = false;
-    } else if (this.$route.query.mydata == 'contact') {
+    } else if (this.$route.query.mydata == "contact") {
       this.support = true;
       this.mission = false;
-    } else if (this.$route.query.mydata == 'join') {
+    } else if (this.$route.query.mydata == "join") {
       this.mission = false;
       this.joinus = true;
       1;
@@ -220,21 +291,21 @@ __webpack_require__.r(__webpack_exports__);
       _this.about = response.data.data;
 
       if (_this.about == null) {
-        _this.about = '';
+        _this.about = "";
       }
     })["catch"](function (error) {
       return _this.errors = error.response.data;
     });
-    axios.get('/api/get-about-contents').then(function (res) {
+    axios.get("/api/get-about-contents").then(function (res) {
       _this.text_contact = res.data.data;
 
       if (_this.text_contact == null) {
-        _this.text_contact = '';
+        _this.text_contact = "";
       }
     })["catch"](function (error) {
       return _this.errors = error.response.data;
     });
-    axios.get('/api/get-join-content').then(function (res) {
+    axios.get("/api/get-join-content").then(function (res) {
       _this.jointext = res.data.data;
     })["catch"](function (error) {
       return console.log(error.response.data);
@@ -245,7 +316,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       axios.post("/aboutContacts-api", this.form).then(function (res) {
-        return _this2.form = '';
+        return _this2.form = "";
       })["catch"](function (error) {
         return _this2.errors = error.response.data.errors;
       });
@@ -267,7 +338,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.row[data-v-2fea7dd6] {\r\n  margin: 0;\r\n  padding: 0;\n}\n.title[data-v-2fea7dd6] {\r\n  font-size: 34px;\r\n  font-weight: bold;\r\n  line-height: 60px;\r\n  margin: 0;\r\n  margin-bottom: 1px;\r\n  cursor: pointer;\r\n  transition: all 0.4s;\r\n  text-align: center;\r\n  background: #f2efeb;\n}\n.title[data-v-2fea7dd6]:hover {\r\n  background: #e6e1da;\n}\n.about-team__people[data-v-2fea7dd6] {\r\n  margin: 0 20px 30px;\n}\n.about-team__people img[data-v-2fea7dd6] {\r\n  width: 120px;\n}\n.topteam[data-v-2fea7dd6] {\r\n  margin-bottom: 30px;\r\n  border-bottom: 2px solid #eee;\r\n  width: 70%;\r\n  margin-left: auto;\r\n  margin-right: auto;\n}\n.support_div .content[data-v-2fea7dd6] {\r\n  color: grey;\r\n  cursor: pointer;\n}\n.support_div .active[data-v-2fea7dd6] {\r\n  color: black;\r\n  font-weight: bold;\n}\n.left[data-v-2fea7dd6] {\r\n  border-right: 2px solid #000;\r\n  padding-left: 300px;\n}\n@media (max-width: 991px) {\n.left[data-v-2fea7dd6] {\r\n    border-right: none;\r\n    padding-left: 0;\n}\n}\n@media (min-width: 992px) and (max-width: 1999px) {\n.left[data-v-2fea7dd6] {\r\n    padding-left: 200px;\n}\n}\n.right[data-v-2fea7dd6] {\r\n  border-left: 2px solid #000;\r\n  padding-right: 300px;\n}\n@media (max-width: 991px) {\n.right[data-v-2fea7dd6] {\r\n    border-left: none;\r\n    padding-right: 0;\n}\n}\n@media (min-width: 992px) and (max-width: 1999px) {\n.right[data-v-2fea7dd6] {\r\n    padding-right: 200px;\n}\n}\n@media(max-width:991px){\n.term_text[data-v-2fea7dd6]{\r\n    text-align: center !important;\n}\n}\n.form[data-v-2fea7dd6] {\r\n  width: 50%;\r\n  margin: auto;\n}\n.mission img[data-v-2fea7dd6]{\r\n  width:90%;\r\n  height:370px;\r\n  border-radius: 10px;\n}\n@media(max-width:767px){\n.mission img[data-v-2fea7dd6]{\r\n    width: 50% !important;\n}\n}\n@media(min-width:768px) and (max-width:991px){\n.mission img[data-v-2fea7dd6]{\r\n    width: 100% !important;\n}\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.row[data-v-2fea7dd6] {\n  margin: 0;\n  padding: 0;\n}\n.title[data-v-2fea7dd6] {\n  font-size: 34px;\n  font-weight: bold;\n  line-height: 60px;\n  margin: 0;\n  margin-bottom: 1px;\n  cursor: pointer;\n  transition: all 0.4s;\n  text-align: center;\n  background: #f2efeb;\n}\n.title[data-v-2fea7dd6]:hover {\n  background: #e6e1da;\n}\n.about-team__people[data-v-2fea7dd6] {\n  margin: 0 20px 30px;\n}\n.about-team__people img[data-v-2fea7dd6] {\n  width: 120px;\n}\n.topteam[data-v-2fea7dd6] {\n  margin-bottom: 30px;\n  border-bottom: 2px solid #eee;\n  width: 70%;\n  margin-left: auto;\n  margin-right: auto;\n}\n.support_div .content[data-v-2fea7dd6] {\n  color: grey;\n  cursor: pointer;\n}\n.support_div .active[data-v-2fea7dd6] {\n  color: black;\n  font-weight: bold;\n}\n.left[data-v-2fea7dd6] {\n  border-right: 2px solid #000;\n  padding-left: 300px;\n}\n@media (max-width: 991px) {\n.left[data-v-2fea7dd6] {\n    border-right: none;\n    padding-left: 0;\n}\n}\n@media (min-width: 992px) and (max-width: 1999px) {\n.left[data-v-2fea7dd6] {\n    padding-left: 200px;\n}\n}\n.right[data-v-2fea7dd6] {\n  border-left: 2px solid #000;\n  padding-right: 300px;\n}\n@media (max-width: 991px) {\n.right[data-v-2fea7dd6] {\n    border-left: none;\n    padding-right: 0;\n}\n}\n@media (min-width: 992px) and (max-width: 1999px) {\n.right[data-v-2fea7dd6] {\n    padding-right: 200px;\n}\n}\n@media (max-width: 991px) {\n.term_text[data-v-2fea7dd6] {\n    text-align: center !important;\n}\n}\n.form[data-v-2fea7dd6] {\n  width: 50%;\n  margin: auto;\n}\n.mission img[data-v-2fea7dd6] {\n  width: 90%;\n  height: 370px;\n  border-radius: 10px;\n}\n@media (max-width: 767px) {\n.mission img[data-v-2fea7dd6] {\n    width: 50% !important;\n}\n}\n@media (min-width: 768px) and (max-width: 991px) {\n.mission img[data-v-2fea7dd6] {\n    width: 100% !important;\n}\n}\ninput[type=\"text\"][data-v-2fea7dd6]:-ms-input-placeholder {\n  text-align: right;\n}\ninput[type=\"text\"][data-v-2fea7dd6]::-webkit-input-placeholder {\n  text-align: right;\n}\ninput[data-v-2fea7dd6]::-moz-placeholder {\n  text-align: right;\n}\n", ""]);
 
 // exports
 
@@ -335,7 +406,7 @@ var render = function() {
               }
             },
             [
-              _c("span", [_vm._v(_vm._s(_vm.$t("message.ourmission")) + " ")]),
+              _c("span", [_vm._v(_vm._s(_vm.$t("message.ourmission")))]),
               _vm._v(" "),
               _vm.mission == false
                 ? _c("span", { staticClass: "plus" }, [_vm._v("+")])
@@ -353,9 +424,7 @@ var render = function() {
               }
             },
             [
-              _c("span", [
-                _vm._v(" " + _vm._s(_vm.$t("message.ourmission")) + " ")
-              ]),
+              _c("span", [_vm._v(_vm._s(_vm.$t("message.ourmission")))]),
               _vm._v(" "),
               _vm.mission == true
                 ? _c("span", { staticClass: "plus" }, [_vm._v("-")])
@@ -367,51 +436,23 @@ var render = function() {
         ? _c("div", { staticClass: "row mt-5 text-center" }, [
             _vm.$i18n.locale == "en"
               ? _c("div", { staticClass: "col-md-8" }, [
-                  _c("p", [
-                    _vm._v(
-                      "\n          " + _vm._s(_vm.about.body1_en) + "\n        "
-                    )
-                  ]),
+                  _c("p", [_vm._v(_vm._s(_vm.about.body1_en))]),
                   _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      "\n          " +
-                        _vm._s(_vm.about.body2_en) +
-                        " \n        "
-                    )
-                  ])
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.$i18n.locale == "en"
-              ? _c("div", { staticClass: "col-md-3" }, [
-                  _c("img", { attrs: { src: _vm.about.body_image, alt: "" } })
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.$i18n.locale == "ar"
-              ? _c("div", { staticClass: "col-md-3" }, [
-                  _c("img", { attrs: { src: _vm.about.body_image, alt: "" } })
+                  _c("p", [_vm._v(_vm._s(_vm.about.body2_en) + " ")])
                 ])
               : _vm._e(),
             _vm._v(" "),
             _vm.$i18n.locale == "ar"
               ? _c("div", { staticClass: "col-md-8" }, [
-                  _c("p", [
-                    _vm._v(
-                      "\n          " + _vm._s(_vm.about.body1_ar) + "\n        "
-                    )
-                  ]),
+                  _c("p", [_vm._v(_vm._s(_vm.about.body1_ar))]),
                   _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      "\n          " +
-                        _vm._s(_vm.about.body2_ar) +
-                        " \n        "
-                    )
-                  ])
+                  _c("p", [_vm._v(_vm._s(_vm.about.body2_ar) + " ")])
                 ])
-              : _vm._e()
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-3" }, [
+              _c("img", { attrs: { src: _vm.about.body_image, alt: "" } })
+            ])
           ])
         : _vm._e()
     ]),
@@ -447,7 +488,9 @@ var render = function() {
               }
             },
             [
-              _vm._v(_vm._s(_vm.$t("message.artists")) + " "),
+              _vm._v(
+                "\n      " + _vm._s(_vm.$t("message.artists")) + "\n      "
+              ),
               _vm.artist == true
                 ? _c("span", { staticClass: "false" }, [_vm._v("-")])
                 : _vm._e()
@@ -455,15 +498,11 @@ var render = function() {
           ),
       _vm._v(" "),
       _vm.artist
-        ? _c("div", { staticClass: " mt-5 text-center" }, [
+        ? _c("div", { staticClass: "mt-5 text-center" }, [
             _c("div", { staticClass: "row" }, [
               _c("div", { staticClass: "col-sm-12" }, [
                 _c("p", { staticClass: "text-center" }, [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(_vm.$t("message.artisttext")) +
-                      "\n                  "
-                  )
+                  _vm._v(_vm._s(_vm.$t("message.artisttext")))
                 ])
               ]),
               _vm._v(" "),
@@ -502,12 +541,12 @@ var render = function() {
                               _vm.$i18n.locale == "en"
                                 ? _c(
                                     "h4",
-                                    { staticClass: "about-team__name" },
+                                    { staticClass: "about-team__name mt-3" },
                                     [_vm._v(_vm._s(artist.name_en))]
                                   )
                                 : _c(
                                     "h4",
-                                    { staticClass: "about-team__name" },
+                                    { staticClass: "about-team__name mt-3" },
                                     [_vm._v(_vm._s(artist.name_ar))]
                                   )
                             ]
@@ -537,7 +576,7 @@ var render = function() {
               }
             },
             [
-              _c("span", [_vm._v(_vm._s(_vm.$t("message.support")) + " ")]),
+              _c("span", [_vm._v(_vm._s(_vm.$t("message.support")))]),
               _vm._v(" "),
               _vm.support == false
                 ? _c("span", { staticClass: "plus" }, [_vm._v("+")])
@@ -555,9 +594,7 @@ var render = function() {
               }
             },
             [
-              _c("span", [
-                _vm._v(" " + _vm._s(_vm.$t("message.support")) + " ")
-              ]),
+              _c("span", [_vm._v(_vm._s(_vm.$t("message.support")))]),
               _vm._v(" "),
               _vm.support == true
                 ? _c("span", { staticClass: "plus" }, [_vm._v("-")])
@@ -579,7 +616,7 @@ var render = function() {
               "div",
               {
                 staticClass:
-                  "row justify-content-md-center support_div text-center "
+                  "row justify-content-md-center support_div text-center"
               },
               [
                 _c("div", { staticClass: "col-md-2 content" }, [
@@ -767,10 +804,8 @@ var render = function() {
                                   _c(
                                     "v-btn",
                                     {
-                                      staticStyle: {
-                                        "margin-left": "12px",
-                                        color: "#fff"
-                                      },
+                                      staticClass: "ml-5",
+                                      staticStyle: { color: "#fff" },
                                       attrs: {
                                         color: "#252524",
                                         type: "submit"
@@ -845,7 +880,7 @@ var render = function() {
                                           _c("v-text-field", {
                                             staticStyle: { border: "none" },
                                             attrs: {
-                                              label: "اﻷلكتروني",
+                                              label: "البريد اﻷلكتروني",
                                               outlined: "",
                                               required: "",
                                               dir: "rtl"
@@ -958,8 +993,8 @@ var render = function() {
                                   _c(
                                     "v-btn",
                                     {
+                                      staticClass: "mr-5",
                                       staticStyle: {
-                                        "margin-left": "12px",
                                         float: "right",
                                         color: "#fff"
                                       },
@@ -1018,7 +1053,9 @@ var render = function() {
               }
             },
             [
-              _vm._v(_vm._s(_vm.$t("message.SUBSCRIBE")) + " "),
+              _vm._v(
+                "\n      " + _vm._s(_vm.$t("message.SUBSCRIBE")) + "\n      "
+              ),
               _vm.joinus == true
                 ? _c("span", { staticClass: "false" }, [_vm._v("-")])
                 : _vm._e()
@@ -1026,27 +1063,21 @@ var render = function() {
           ),
       _vm._v(" "),
       _vm.joinus
-        ? _c("div", { staticClass: " mt-5 text-center" }, [
+        ? _c("div", { staticClass: "mt-5 text-center" }, [
             _c("div", { staticClass: "row justify-content-sm-center" }, [
               _c("div", { staticClass: "col-sm-12" }, [
                 _vm.$i18n.locale == "en"
                   ? _c("p", { staticClass: "text-center" }, [
-                      _vm._v(
-                        "\n                    " +
-                          _vm._s(_vm.jointext.text_en) +
-                          "\n                  "
-                      )
+                      _vm._v(_vm._s(_vm.jointext.text_en))
                     ])
                   : _c("p", { staticClass: "text-center" }, [
-                      _vm._v(
-                        "\n                    " +
-                          _vm._s(_vm.jointext.text_ar) +
-                          "\n                  "
-                      )
+                      _vm._v(_vm._s(_vm.jointext.text_ar))
                     ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-sm-12" }, [_c("app-Joinus")], 1)
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-sm-12" }, [_c("app-Joinus")], 1)
+              ])
             ])
           ])
         : _vm._e()
@@ -1133,7 +1164,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AboutUs_vue_vue_type_style_index_0_id_2fea7dd6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./AboutUs.vue?vue&type=style&index=0&id=2fea7dd6&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Page/AboutUs.vue?vue&type=style&index=0&id=2fea7dd6&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AboutUs_vue_vue_type_style_index_0_id_2fea7dd6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AboutUs_vue_vue_type_style_index_0_id_2fea7dd6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AboutUs_vue_vue_type_style_index_0_id_2fea7dd6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AboutUs_vue_vue_type_style_index_0_id_2fea7dd6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AboutUs_vue_vue_type_style_index_0_id_2fea7dd6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AboutUs_vue_vue_type_style_index_0_id_2fea7dd6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AboutUs_vue_vue_type_style_index_0_id_2fea7dd6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),

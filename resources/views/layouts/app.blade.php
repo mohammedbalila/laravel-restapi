@@ -23,12 +23,18 @@
 
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
 
     <link rel="stylesheet" href="/css/admin/styles.css">
     @yield('css')
     <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
     <link rel="stylesheet" href="/css/admin/font.css">
+    <style>
+        .wrapper {
+            height: 100vh !important;
+        }
+    </style>
 </head>
 
 <body class="skin-blue sidebar-mini">
@@ -38,10 +44,16 @@
         <header class="main-header">
 
             <!-- Logo -->
-            <a href="#" class="logo">
+            {{-- <a href="#" class="logo">
+                <i class="fa fa-tachometer"></i>
                 <b>Admin Dashboard </b>
+            </a> --}}
+            <a href="#" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><b>N</b>Q</span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><b>Naqsh</b></span>
             </a>
-
             <!-- Header Navbar -->
             <nav class="navbar navbar-static-top" role="navigation">
                 <!-- Sidebar toggle button-->
@@ -69,10 +81,12 @@
                                         <a href="#" class="btn btn-default btn-flat">Profile</a>
                                     </div> -->
                             <div class="pull-right">
-                                <a href="{{ url('/logout') }}" class="btn btn-default btn-flat log-out" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <a href="{{ url('/logout') }}" class="btn btn-default btn-flat log-out"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     Sign out
                                 </a>
-                                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                <form id="logout-form" action="{{ url('/logout') }}" method="POST"
+                                    style="display: none;">
                                     @csrf
                                 </form>
                             </div>
@@ -103,7 +117,8 @@
             <div class="navbar-header">
 
                 <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#app-navbar-collapse">
                     <span class="sr-only">Toggle Navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -147,7 +162,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js">
+    </script>
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.3/js/adminlte.min.js"></script>

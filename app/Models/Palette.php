@@ -61,7 +61,17 @@ class Palette extends Model
         'frame_material',
         'frame_finish',
         'artist_id',
-        'tag'
+        'tag',
+        'sizing_details_ar',
+        'print_material_ar',
+        'print_ink_ar',
+        'print_finish_ar',
+        'frame_material_ar',
+        'frame_finish_ar',
+        'description',
+        'description_ar',
+        'shipping',
+        'shipping_ar',
     ];
 
     /**
@@ -91,7 +101,15 @@ class Palette extends Model
         'frame_material' => 'string',
         'frame_finish' => 'string',
         'artist_id' => 'integer',
-        'tag' => 'string'
+        'tag' => 'string',
+        'sizing_details_ar' => 'string',
+        'print_material_ar' => 'string',
+        'print_ink_ar' => 'string',
+        'print_finish_ar' => 'string',
+        'frame_material_ar' => 'string',
+        'frame_finish_ar' => 'string',
+        'description' => 'string',
+        'description_ar' => 'string',
     ];
 
     /**
@@ -104,7 +122,7 @@ class Palette extends Model
     ];
     public function images()
     {
-        return $this->hasMany('App\Models\Paletteimage','palatte_id');
+        return $this->hasMany('App\Models\Paletteimage', 'palatte_id');
     }
     // public function artist(){
     //     return $this->belongsTo(Artist::class,"artist_id");

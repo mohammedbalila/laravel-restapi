@@ -14,7 +14,7 @@ class AddTagToPalettes extends Migration
     public function up()
     {
         Schema::table('palettes', function (Blueprint $table) {
-            $table->string('tag');
+            $table->string('tag')->nullable();
         });
     }
 

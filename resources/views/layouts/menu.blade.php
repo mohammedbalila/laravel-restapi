@@ -6,7 +6,8 @@
     }
 
     body {
-        font-family: 'Open Sans';font-size: 16px;
+        font-family: 'Open Sans';
+        font-size: 16px;
 
     }
 </style>
@@ -14,11 +15,6 @@
 @if(Auth::user()->admin_role==1)
 <li class="{{ Request::is('admin*') ? 'active' : '' }}">
     <a href="{{ route('admin.index') }}"><i class="fa fa-tachometer"></i><span>Dashboard</span></a>
-</li>
-<br>
-<li class="{{ Request::is('appliedartists*') ? 'active' : '' }}">
-    <a href="{{ route('appliedartists.index') }}"><i class="fa fa-user-o" aria-hidden="true"></i>
-        <span>Artists Requests</span></a>
 </li>
 <br>
 <li class="{{ Request::is('appliedartists*') ? 'active' : '' }}">
@@ -44,10 +40,10 @@
     <a href="{{ route('paletteimages.index') }}"><i class="fa fa-picture-o" aria-hidden="true"></i><span>Palette Images</span></a>
 </li> -->
 <br>
-<li class="{{ Request::is('reviews*') ? 'active' : '' }}">
-    <a href="{{ route('reviews.index') }}"><i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span>Reviews</span></a>
-</li>
+{{-- <li class="{{ Request::is('reviews*') ? 'active' : '' }}">
+<a href="{{ route('reviews.index') }}"><i class="fa fa-comments-o" aria-hidden="true"></i>
+    <span>Reviews</span></a>
+</li> --}}
 
 <br>
 <li class="{{ Request::is('discounts*') ? 'active' : '' }}">
@@ -60,30 +56,56 @@
 <li class="{{ Request::is('homeDatas*') ? 'active' : '' }}">
     <a href="{{ route('homeDatas.index') }}"><i class="fa fa-edit"></i><span>Home Content</span></a>
 </li>
+<li
+    class="treeview {{ Request::is('aboutContents*')||Request::is('aboutAretists*')||Request::is('aboutContactsTexts*') ? 'active' : '' }}">
+    <a href="#">
+        <i class="fa fa-edit"></i> <span>About</span>
+        <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+        </span>
+    </a>
+    <ul class="treeview-menu">
+        <li class="{{ Request::is('aboutContents*') ? 'active' : '' }}"><a href="{{ route('aboutContents.index') }}"><i
+                    class="fa fa-circle-o"></i> Content</a></li>
+        <li class="{{ Request::is('aboutAretists*') ? 'active' : '' }}"><a href="{{ route('aboutAretists.index') }}"><i
+                    class="fa fa-circle-o"></i> Artists</a></li>
+        <li class="{{ Request::is('aboutContactsTexts*') ? 'active' : '' }}"><a
+                href="{{ route('aboutContactsTexts.index') }}"><i class="fa fa-circle-o"></i> Contact us</a></li>
+        <li class="{{ Request::is('joinusTexts*') ? 'active' : '' }}"><a href="{{ route('joinusTexts.index') }}"><i
+                    class="fa fa-circle-o"></i> Joinus</a>
+        </li>
+    </ul>
+</li>
+<br>
 
-
-<li class="{{ Request::is('aboutContents*') ? 'active' : '' }}">
-    <a href="{{ route('aboutContents.index') }}"><i class="fa fa-edit"></i><span>About P:Content</span></a>
+{{-- <li >
+    <a><i class="fa fa-edit"></i><span>About P:</span></a>
 </li>
 
-<li class="{{ Request::is('aboutAretists*') ? 'active' : '' }}">
-    <a href="{{ route('aboutAretists.index') }}"><i class="fa fa-edit"></i><span>About P:Artists</span></a>
-</li>
+<li >
+    <a ><i class="fa fa-edit"></i><span>About P:</span></a>
+</li> --}}
 
-<li class="{{ Request::is('aboutContacts*') ? 'active' : '' }}">
-    <a href="{{ route('aboutContacts.index') }}"><i class="fa fa-edit"></i><span>About  Contacts</span></a>
+{{-- <li >
+    <a href="{{ route('aboutContacts.index') }}"><i class="fa fa-edit"></i><span>About </span></a>
+</li> --}}
+<li class="{{ Request::is('aboutContacts*') ? 'active' : '' }}"><a href="{{ route('aboutContacts.index') }}"><i
+            class="fa fa-users"></i> Client Messages</a></li>
+<li class="{{ Request::is('appliedartists*') ? 'active' : '' }}">
+    <a href="{{ route('appliedartists.index') }}"><i class="fa fa-user-o" aria-hidden="true"></i>
+        <span>Artists Requests</span></a>
 </li>
+<br>
+{{-- <li class="{{ Request::is('aboutContactsTexts*') ? 'active' : '' }}">
+<a href="{{ route('aboutContactsTexts.index') }}"><i class="fa fa-edit"></i><span>About Contacts Texts</span></a>
+</li> --}}
+
+{{-- <li class="{{ Request::is('joinusTexts*') ? 'active' : '' }}">
+<a href="{{ route('joinusTexts.index') }}"><i class="fa fa-edit"></i><span>Joinus Content</span></a>
+</li> --}}
 @else
 <li class="{{ Request::is('appliedartists*') ? 'active' : '' }}">
     <a href="/orders"><i class="fas fa-money-check-alt"></i>
         <span>Orders Requests</span></a>
 </li>
 @endif
-<li class="{{ Request::is('aboutContactsTexts*') ? 'active' : '' }}">
-    <a href="{{ route('aboutContactsTexts.index') }}"><i class="fa fa-edit"></i><span>About  Contacts  Texts</span></a>
-</li>
-
-<li class="{{ Request::is('joinusTexts*') ? 'active' : '' }}">
-    <a href="{{ route('joinusTexts.index') }}"><i class="fa fa-edit"></i><span>Joinus  Texts</span></a>
-</li>
-

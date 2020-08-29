@@ -14,7 +14,7 @@ class AddSociallinkToAboutAretists extends Migration
     public function up()
     {
         Schema::table('about_aretists', function (Blueprint $table) {
-            $table->string('sociallink');
+            $table->string('sociallink')->nullable();
         });
     }
 

@@ -29,12 +29,12 @@ class CreatePalettesTable extends Migration
             $table->integer('L_copies')->nullable();
             $table->integer('L_avalible')->nullable();
             $table->string('L_price')->nullable();
-            $table->string('sizing_details')->nullable();
-            $table->string('print_material')->nullable();
-            $table->string('print_ink')->nullable();
-            $table->string('print_finish')->nullable();
-            $table->string('frame_material')->nullable();
-            $table->string('frame_finish')->nullable();
+            $table->longText('sizing_details')->nullable();
+            $table->longText('print_material')->nullable();
+            $table->longText('print_ink')->nullable();
+            $table->longText('print_finish')->nullable();
+            $table->longText('frame_material')->nullable();
+            $table->longText('frame_finish')->nullable();
             $table->integer('artist_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();

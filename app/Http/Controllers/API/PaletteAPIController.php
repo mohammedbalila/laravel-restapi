@@ -37,114 +37,108 @@ class PaletteAPIController extends AppBaseController
      */
     public function index()
     {
-        $arr=[];
+        $arr = [];
         $artists = Artist::all();
         $palettesSlider = Palette::all();
         foreach ($palettesSlider as $item) {
-            $myitem= $item-> images->first();
-            if($myitem)
-            {
-                 $item->extraimg = $myitem ;
-            }else
-            {
+            $myitem = $item->images->first();
+            if ($myitem) {
+                $item->extraimg = $myitem;
+            } else {
                 $item->extraimg  =  'https://previews.123rf.com/images/eyematrix/eyematrix1712/eyematrix171200014/91720468-used-artists-paint-brushes-different-colors-on-palette-background.jpg';
             }
-
         } //add extra img attr  for slider img
 
-        foreach ($artists as $key=>$item) {
+        foreach ($artists as $key => $item) {
 
-            $palettesArtists = Palette::where('artist_id',$item->id)->limit(3)->get();
-            $item->key=$key;
-            if($palettesArtists)
-            {
-                foreach($palettesArtists as $item2)
-                {                    
-                    $minPalettes = Paletteimage::where('palatte_id',$item2->id)->first();
-                    if($minPalettes){
-                        $item2->artist_min_palettes = $minPalettes ;
-                    }else
-                    {
+            $palettesArtists = Palette::where('artist_id', $item->id)->limit(3)->get();
+            $item->key = $key;
+            if ($palettesArtists) {
+                foreach ($palettesArtists as $item2) {
+                    $minPalettes = Paletteimage::where('palatte_id', $item2->id)->first();
+                    if ($minPalettes) {
+                        $item2->artist_min_palettes = $minPalettes;
+                    } else {
                         $item2->artist_min_palettes  = [];
                     }
                 }
-                 $item->artist_palettes = $palettesArtists ;
-            }else
-            {
+                $item->artist_palettes = $palettesArtists;
+            } else {
                 $item->artist_palettes  = [];
             }
-
         }
-        
 
 
-        return response()->json(['artists' => $artists,'palettesSlider' =>$palettesSlider]);
 
+        return response()->json(['artists' => $artists, 'palettesSlider' => $palettesSlider]);
     }
 
-        /**
+    /**
      * Display a listing of the Palette.
      * GET|HEAD /palettes
      *
      * @param Request $request
      * @return Response
      */
-    public function hover($id=null )
+    public function hover($id = null)
     {
         $palette = Palette::find($id);
-        if($palette)
-        {
-           $hove_image=  $palette->images->first();
-            return response()->json([ 'status'=>true,'hover_image'=>$hove_image]  );
-
-        }else
-        return response()->json([ 'status'=>false,'error'=>'error acccured']  );
+        if ($palette) {
+            $hove_image =  $palette->images->first();
+            return response()->json(['status' => true, 'hover_image' => $hove_image]);
+        } else
+            return response()->json(['status' => false, 'error' => 'error acccured']);
     }
 
-    public function artist(Request $request){
+    public function artist(Request $request)
+    {
         $palette = Palette::find($request->id);
-        $artist = Artist::where('id',$palette->artist_id)->get('id');
-        return response()->json(['artist'=>$artist]);   
+        $artist = Artist::where('id', $palette->artist_id)->get('id');
+        return response()->json(['artist' => $artist]);
     }
 
-    public function getReviews(){
+    public function getReviews()
+    {
         return Review::latest()->paginate(3);
         // return response()->json(['review' => $review]);
     }
-    public function Palettes(Request $request){
-        $artist = Artist::where('id',$request->id)->pluck('Plates_description');
-        $palettesArtists = Palette::where('artist_id',$request->id)->limit(3)->get();
-        $palettes = Palette::where('artist_id',$request->id)->limit(5)->get();
-        $palettesActive = Palette::where('id',$request->id)->limit(1)->get();
-        return response()->json([ 'palettesArtists' =>$palettesArtists,'palettes' =>$palettes,'artist'=>$artist,'palettesActive'=>$palettesActive]);
-
+    public function Palettes(Request $request)
+    {
+        $artist = Artist::where('id', $request->id)->pluck('Plates_description');
+        $palettesArtists = Palette::where('artist_id', $request->id)->limit(3)->get();
+        $palettes = Palette::where('artist_id', $request->id)->limit(5)->get();
+        $palettesActive = Palette::where('id', $request->id)->first();
+        return response()->json(['palettesArtists' => $palettesArtists, 'palettes' => $palettes, 'artist' => $artist, 'palettesActive' => $palettesActive]);
     }
-    public function viewMinPalettes(Request $request){
+    public function viewMinPalettes(Request $request)
+    {
 
-        $palettes = Palette::where('id',$request->id)->get();
-        $minPalettes = Paletteimage::where('palatte_id',$request->id)->limit(5)->get();
-        return response()->json(['minPalettes' => $minPalettes,'palettes' =>$palettes]);
+        $palettes = Palette::where('id', $request->id)->get();
+        $minPalettes = Paletteimage::where('palatte_id', $request->id)->limit(5)->get();
+        return response()->json(['minPalettes' => $minPalettes, 'palettes' => $palettes]);
     }
-    public function addtocart(Request $request) {
+    public function addtocart(Request $request)
+    {
         $paletteCart = Palette::find($request->id);
-        if($paletteCart){
-            $paletteCart->addtocart =1;
+        if ($paletteCart) {
+            $paletteCart->addtocart = 1;
             $paletteCart->save();
-            return response()->json(['paletteCart' =>$paletteCart]);
+            return response()->json(['paletteCart' => $paletteCart]);
         }
     }
-    public function removefromcart(Request $request) {
+    public function removefromcart(Request $request)
+    {
         $paletteCart = Palette::find($request->id);
-        if($paletteCart){
-            $paletteCart->addtocart =0;
+        if ($paletteCart) {
+            $paletteCart->addtocart = 0;
             $paletteCart->save();
-            return response()->json(['paletteCart' =>$paletteCart]);
+            return response()->json(['paletteCart' => $paletteCart]);
         }
     }
-    public function getpallatecart() {
-        $palettes = Palette::where('addtocart',1)->get();
-        return response()->json(['palettes' =>$palettes]);
-
+    public function getpallatecart()
+    {
+        $palettes = Palette::where('addtocart', 1)->get();
+        return response()->json(['palettes' => $palettes]);
     }
     /**
      * Store a newly created Palette in storage.
@@ -174,8 +168,8 @@ class PaletteAPIController extends AppBaseController
      */
     public function show(Request $request)
     {
-        $palettes = Palette::where('artist_id',$request->id)->get();
-        return response()->json(['palettes' =>$palettes]);
+        $palettes = Palette::where('artist_id', $request->id)->get();
+        return response()->json(['palettes' => $palettes]);
     }
 
     /**

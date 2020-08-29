@@ -126,44 +126,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       form: {
-        phone: '',
-        name: '',
-        email: '',
-        socialLink: ''
+        phone: "",
+        name: "",
+        email: "",
+        socialLink: ""
       },
       errors: {},
-      message: '',
+      message: "",
       loading: false
     };
   },
@@ -174,8 +147,8 @@ __webpack_require__.r(__webpack_exports__);
     send: function send() {
       var _this = this;
 
-      axios.post('/api/artist-request', this.form).then(function (res) {
-        _this.message = 'Successful';
+      axios.post("/api/artist-request", this.form).then(function (res) {
+        _this.message = "Successful";
         _this.form.phone = "";
         _this.form.name = "";
         _this.form.email = "";
@@ -202,7 +175,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.label[data-v-0bb49026]{\n        left: 90%;\n}\n.v-btn:not(.v-btn--round).v-size--default[data-v-0bb49026]{\n    font-size: 16px !important;\n    font-weight: bold !important;\n    display: inline-block !important;\n    padding: 20px 38px !important;\n    cursor: pointer !important;\n    transition: all .4s ease-out !important;\n    letter-spacing: 1px !important;\n    text-transform: uppercase !important;\n    color: #fff !important;\n    border: none !important;\n    background-color: #000 !important;\n    height:  auto!important;\n    border-radius: 0!important;\n}\n", ""]);
+exports.push([module.i, "\n.label[data-v-0bb49026] {\n  left: 90%;\n}\n\n/* .v-btn:not(.v-btn--round).v-size--default {\n  font-size: 16px !important;\n  font-weight: bold !important;\n  display: inline-block !important;\n  padding: 20px 38px !important;\n  cursor: pointer !important;\n  transition: all 0.4s ease-out !important;\n  letter-spacing: 1px !important;\n  text-transform: uppercase !important;\n  color: #fff !important;\n  border: none !important;\n  background-color: #000 !important;\n  height: auto !important;\n  border-radius: 0 !important;\n} */\n.form[data-v-0bb49026] {\n  width: 50%;\n  margin: auto;\n}\n", ""]);
 
 // exports
 
@@ -259,7 +232,7 @@ var render = function() {
     [
       _vm.message.length > 0
         ? _c("div", { staticClass: "alert alert-info text-center" }, [
-            _c("h1", [_vm._v(" " + _vm._s(_vm.message))])
+            _c("h1", [_vm._v(_vm._s(_vm.message))])
           ])
         : _vm._e(),
       _vm._v(" "),
@@ -267,6 +240,7 @@ var render = function() {
         ? _c(
             "v-form",
             {
+              staticClass: "form",
               on: {
                 submit: function($event) {
                   $event.preventDefault()
@@ -283,14 +257,13 @@ var render = function() {
                     [
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", md: "12" } },
+                        { attrs: { cols: "12", md: "6" } },
                         [
                           _c("v-text-field", {
                             staticStyle: { border: "none" },
                             attrs: {
                               label: "Your Name",
                               required: "",
-                              loading: "",
                               clearable: "",
                               outlined: ""
                             },
@@ -314,14 +287,13 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", md: "12" } },
+                        { attrs: { cols: "12", md: "6" } },
                         [
                           _c("v-text-field", {
                             staticStyle: { border: "none" },
                             attrs: {
                               label: "E-mail",
                               required: "",
-                              loading: "",
                               clearable: "",
                               outlined: ""
                             },
@@ -352,7 +324,6 @@ var render = function() {
                             attrs: {
                               label: "Your Phone Number",
                               required: "",
-                              loading: "",
                               clearable: "",
                               outlined: ""
                             },
@@ -383,7 +354,6 @@ var render = function() {
                             attrs: {
                               label: "Your Social Link",
                               required: "",
-                              loading: "",
                               clearable: "",
                               outlined: ""
                             },
@@ -408,9 +378,15 @@ var render = function() {
                     1
                   ),
                   _vm._v(" "),
-                  _c("v-btn", { attrs: { color: "#f2efeb", type: "submit" } }, [
-                    _vm._v("Join Us")
-                  ])
+                  _c(
+                    "v-btn",
+                    {
+                      staticClass: "ml-2",
+                      staticStyle: { color: "#fff", float: "left" },
+                      attrs: { color: "#252524", type: "submit" }
+                    },
+                    [_vm._v("Join us")]
+                  )
                 ],
                 1
               )
@@ -420,6 +396,7 @@ var render = function() {
         : _c(
             "v-form",
             {
+              staticClass: "form",
               on: {
                 submit: function($event) {
                   $event.preventDefault()
@@ -436,14 +413,13 @@ var render = function() {
                     [
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", md: "12" } },
+                        { attrs: { cols: "12", md: "6" } },
                         [
                           _c("v-text-field", {
                             staticStyle: { border: "none" },
                             attrs: {
                               label: "أسمك",
                               required: "",
-                              loading: "",
                               clearable: "",
                               outlined: "",
                               dir: "rtl"
@@ -468,13 +444,12 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", md: "12" } },
+                        { attrs: { cols: "12", md: "6" } },
                         [
                           _c("v-text-field", {
                             staticStyle: { border: "none" },
                             attrs: {
                               label: "بريدك اﻷلكتروني",
-                              loading: "",
                               clearable: "",
                               required: "",
                               outlined: "",
@@ -507,7 +482,6 @@ var render = function() {
                             attrs: {
                               label: "رقم الموبايل الخاص بك",
                               required: "",
-                              loading: "",
                               clearable: "",
                               outlined: "",
                               dir: "rtl"
@@ -539,7 +513,6 @@ var render = function() {
                             attrs: {
                               label: "رابط التواصل الاجتماعي",
                               required: "",
-                              loading: "",
                               clearable: "",
                               outlined: "",
                               dir: "rtl"
@@ -568,10 +541,11 @@ var render = function() {
                   _c(
                     "v-btn",
                     {
-                      staticStyle: { float: "right" },
-                      attrs: { color: "#f2efeb", type: "submit" }
+                      staticClass: "mr-2",
+                      staticStyle: { color: "#fff", float: "right" },
+                      attrs: { color: "#252524", type: "submit" }
                     },
-                    [_vm._v("أشترك معنا")]
+                    [_vm._v("انضم الينا")]
                   ),
                   _vm._v(" "),
                   _c("div", { staticStyle: { clear: "both" } })
@@ -656,7 +630,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_JoinUs_vue_vue_type_style_index_0_id_0bb49026_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./JoinUs.vue?vue&type=style&index=0&id=0bb49026&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Page/JoinUs.vue?vue&type=style&index=0&id=0bb49026&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_JoinUs_vue_vue_type_style_index_0_id_0bb49026_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_JoinUs_vue_vue_type_style_index_0_id_0bb49026_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_JoinUs_vue_vue_type_style_index_0_id_0bb49026_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_JoinUs_vue_vue_type_style_index_0_id_0bb49026_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_JoinUs_vue_vue_type_style_index_0_id_0bb49026_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_JoinUs_vue_vue_type_style_index_0_id_0bb49026_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_JoinUs_vue_vue_type_style_index_0_id_0bb49026_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),

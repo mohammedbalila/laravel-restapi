@@ -472,6 +472,100 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
     larg: function larg(el, price, avilable) {
@@ -493,6 +587,18 @@ __webpack_require__.r(__webpack_exports__);
     },
     cart: function cart() {
       return this.$store.state.cart;
+    },
+    currentLanguage: function currentLanguage() {
+      return this.$i18n.locale;
+    }
+  },
+  watch: {
+    currentLanguage: function currentLanguage(newLang, oldLang) {
+      if (newLang == "ar") {
+        this.form.country = "المملكة العربية السعودية";
+      } else {
+        this.form.country = "Saudi Arabia";
+      }
     }
   },
   data: function data() {
@@ -506,8 +612,8 @@ __webpack_require__.r(__webpack_exports__);
         apartment: null,
         city: null,
         phone: null,
-        country: 'Saudi Arabia',
-        goverment: 'Saudi Arabia',
+        country: "Saudi Arabia",
+        goverment: "Saudi Arabia",
         postcode: null,
         items: [],
         promocode: ""
@@ -515,15 +621,15 @@ __webpack_require__.r(__webpack_exports__);
       discount: "",
       discount_value: 0,
       totalprice_2: 0,
-      id: '',
+      id: "",
       item: ["Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas (the)", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia (Plurinational State of)", "Bonaire, Sint Eustatius and Saba", "Bosnia and Herzegovina", "Botswana", "Bouvet Island", "Brazil", "British Indian Ocean Territory (the)", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Cayman Islands (the)", "Central African Republic (the)", "Chad", "Chile", "China", "Christmas Island", "Cocos (Keeling) Islands (the)", "Colombia", "Comoros (the)", "Congo (the Democratic Republic of the)", "Congo (the)", "Cook Islands (the)", "Costa Rica", "Croatia", "Cuba", "Curaçao", "Cyprus", "Czechia", "Côte d'Ivoire", "Denmark", "Djibouti", "Dominica", "Dominican Republic (the)", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia", "Falkland Islands (the) [Malvinas]", "Faroe Islands (the)", "Fiji", "Finland", "France", "French Guiana", "French Polynesia", "French Southern Territories (the)", "Gabon", "Gambia (the)", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guernsey", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard Island and McDonald Islands", "Holy See (the)", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran (Islamic Republic of)", "Iraq", "Ireland", "Isle of Man", "Israel", "Italy", "Jamaica", "Japan", "Jersey", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea (the Democratic People's Republic of)", "Korea (the Republic of)", "Kuwait", "Kyrgyzstan", "Lao People's Democratic Republic (the)", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macao", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands (the)", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia (Federated States of)", "Moldova (the Republic of)", "Monaco", "Mongolia", "Montenegro", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands (the)", "New Caledonia", "New Zealand", "Nicaragua", "Niger (the)", "Nigeria", "Niue", "Norfolk Island", "Northern Mariana Islands (the)", "Norway", "Oman", "Pakistan", "Palau", "Palestine, State of", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines (the)", "Pitcairn", "Poland", "Portugal", "Puerto Rico", "Qatar", "Republic of North Macedonia", "Romania", "Russian Federation (the)", "Rwanda", "Réunion", "Saint Barthélemy", "Saint Helena, Ascension and Tristan da Cunha", "Saint Kitts and Nevis", "Saint Lucia", "Saint Martin (French part)", "Saint Pierre and Miquelon", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Sint Maarten (Dutch part)", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia and the South Sandwich Islands", "South Sudan", "Spain", "Sri Lanka", "Sudan (the)", "Suriname", "Svalbard and Jan Mayen", "Sweden", "Switzerland", "Syrian Arab Republic", "Taiwan", "Tajikistan", "Tanzania, United Republic of", "Thailand", "Timor-Leste", "Togo", "Tokelau", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks and Caicos Islands (the)", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates (the)", "United Kingdom of Great Britain and Northern Ireland (the)", "United States Minor Outlying Islands (the)", "United States of America (the)", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela (Bolivarian Republic of)", "Viet Nam", "Virgin Islands (British)", "Virgin Islands (U.S.)", "Wallis and Futuna", "Western Sahara", "Yemen", "Zambia", "Zimbabwe", "Åland Islands"],
-      item_ar: ["أفغانستان", "ألبانيا", "الجزائر", "ساموا الأمريكية", "أندورا", "أنغولا", "أنغيلا", "أنتاركتيكا", "أنتيغوا وبربودا", "الأرجنتين", "أرمينيا", "أروبا", "أستراليا", "النمسا", "أذربيجان", "جزر البهاما", "البحرين", "بنغلاديش", "بربادوس", "بيلاروس", "بلجيكا", "بليز", "بنين", "برمودا", "بوتان", "بوليفيا (دولة - المتعددة القوميات)", "بونير وسينت أوستاتيوس وسابا", "البوسنة والهرسك", "بوتسوانا", "جزيرة بوفيت", "البرازيل", "إقليم المحيط الهندي البريطاني (the)", "بروناي دار السلام", "بلغاريا", "بوركينا فاسو", "بوروندي", "كابو فيردي", "كمبوديا", "الكاميرون", "كندا", "جزر كايمان (ال)", "جمهورية أفريقيا الوسطى", "تشاد", "تشيلي", "الصين", "جزيرة الكريسماس", "جزر كوكوس (كيلينغ)", "كولومبيا", "جزر القمر", "جمهورية الكونغو الديمقراطية", "الكونغو (ال)", "جزر كوك", "كوستا ريكا", "كرواتيا", "كوبا", "كوراساو", "قبرص", "التشيك", "كوت ديفوار", "الدنمارك", "جيبوتي", "دومينيكا", "جمهورية الدومينيكان", "إكوادور", "مصر", "السلفادور", "غينيا الإستوائية", "إريتريا", "إستونيا", "Eswatini", "أثيوبيا", "جزر فوكلاند (مالفيناس)", "جزر فارو", "فيجي", "فنلندا", "فرنسا", "غيانا الفرنسية", "بولينيزيا الفرنسية", "الأقاليم الجنوبية الفرنسية (ال)", "الغابون", "غامبيا", "جورجيا", "ألمانيا", "غانا", "جبل طارق", "اليونان", "الأرض الخضراء", "غرينادا", "جوادلوب", "غوام", "غواتيمالا", "غيرنسي", "غينيا", "غينيا - بيساو", "غيانا", "هايتي", "قلب الجزيرة وجزر ماكدونالز", "الكرسي الرسولي", "هندوراس", "هونغ كونغ", "هنغاريا", "أيسلندا", "الهند", "إندونيسيا", "جمهورية إيران الإسلامية", "العراق", "أيرلندا", "جزيرة آيل أوف مان", "إسرائيل", "إيطاليا", "جامايكا", "اليابان", "جيرسي", "الأردن", "كازاخستان", "كينيا", "كيريباتي", "كوريا (جمهورية - الديمقراطية الشعبية)", "جمهورية كوريا", "الكويت", "قيرغيزستان", "جمهورية لاو الديمقراطية الشعبية (ذا)", "لاتفيا", "لبنان", "ليسوتو", "ليبيريا", "ليبيا", "ليختنشتاين", "ليتوانيا", "لوكسمبورغ", "ماكاو", 'مدغشقر', "ملاوي", "ماليزيا", "جزر المالديف", "مالي", "مالطا", "جزر مارشال", "مارتينيك", "موريتانيا", "موريشيوس", "مايوت", "المكسيك", "ميكرونيزيا (ولايات - الموحدة)", "مولدوفا (جمهورية)", "موناكو", "منغوليا", "الجبل الأسود", "مونتسيرات", "المغرب", "موزمبيق", "ميانمار", "ناميبيا", "ناورو", "نيبال", "هولندا", "كاليدونيا الجديدة", "نيوزيلندا", "نيكاراغوا", "النيجر", "نيجيريا", "نيوي", "جزيرة نورفولك", "جزر ماريانا الشمالية", "النرويج", "سلطنة عمان", "باكستان", "بالاو", "فلسطين , دولة", "بنما", "بابوا غينيا الجديدة", "باراغواي", "بيرو", "الفلبين", "بيتكيرن", "بولندا", "البرتغال", "بورتوريكو", "دولة قطر", "جمهورية شمال مقدونيا", "رومانيا", "الاتحاد الروسي", "رواندا", "جمع شمل", "سانت بارتيليمي", "سانت هيلانة وأسنسيون وتريستان دا كونها", "سانت كيتس ونيفيس", "القديسة لوسيا", "سانت مارتن (الجزء الفرنسي)", "سانت بيير وميكلون", "سانت فنسنت وجزر غرينادين", "ساموا", "سان مارينو", "ساو تومي وبرينسيبي", "المملكة العربية السعودية", "السنغال", "صربيا", "سيشيل", "سيرا ليون", "سنغافورة", "سانت مارتن (الجزء الهولندي)", "سلوفاكيا", "سلوفينيا", "جزر سليمان", "الصومال", "جنوب أفريقيا", "جورجيا الجنوبية وجزر ساندويتش الجنوبية", "جنوب السودان", "إسبانيا", "سيريلانكا", "السودان", "سورينام", "سفالبارد وجان ماين", "السويد", "سويسرا", "الجمهورية العربية السورية", "تايوان", "طاجيكستان", "جمهورية تنزانيا المتحدة", "تايلاند", "تيمور الشرقية", "توجو", "توكيلاو", "تونغا", "ترينداد وتوباغو", "تونس", "ديك رومي", "تركمانستان", "جزر تركس وكايكوس", "توفالو", "أوغندا", "أوكرانيا", "الإمارات العربية المتحدة", "المملكة المتحدة لبريطانيا العظمى وأيرلندا الشمالية (ال)", "جزر الولايات المتحدة الصغيرة النائية (ال)", "الولايات المتحدة الأمريكية", "أوروغواي", "أوزبكستان", "فانواتو", "فنزويلا (جمهورية - البوليفارية)", "فيتنام", "جزر العذراء البريطانية)", "جزر فيرجن (الولايات المتحدة)", "واليس وفوتونا", "الصحراء الغربية", "اليمن", "زامبيا", "زيمبابوي", "جزر آلاند"],
+      item_ar: ["أفغانستان", "ألبانيا", "الجزائر", "ساموا الأمريكية", "أندورا", "أنغولا", "أنغيلا", "أنتاركتيكا", "أنتيغوا وبربودا", "الأرجنتين", "أرمينيا", "أروبا", "أستراليا", "النمسا", "أذربيجان", "جزر البهاما", "البحرين", "بنغلاديش", "بربادوس", "بيلاروس", "بلجيكا", "بليز", "بنين", "برمودا", "بوتان", "بوليفيا (دولة - المتعددة القوميات)", "بونير وسينت أوستاتيوس وسابا", "البوسنة والهرسك", "بوتسوانا", "جزيرة بوفيت", "البرازيل", "إقليم المحيط الهندي البريطاني (the)", "بروناي دار السلام", "بلغاريا", "بوركينا فاسو", "بوروندي", "كابو فيردي", "كمبوديا", "الكاميرون", "كندا", "جزر كايمان (ال)", "جمهورية أفريقيا الوسطى", "تشاد", "تشيلي", "الصين", "جزيرة الكريسماس", "جزر كوكوس (كيلينغ)", "كولومبيا", "جزر القمر", "جمهورية الكونغو الديمقراطية", "الكونغو (ال)", "جزر كوك", "كوستا ريكا", "كرواتيا", "كوبا", "كوراساو", "قبرص", "التشيك", "كوت ديفوار", "الدنمارك", "جيبوتي", "دومينيكا", "جمهورية الدومينيكان", "إكوادور", "مصر", "السلفادور", "غينيا الإستوائية", "إريتريا", "إستونيا", "Eswatini", "أثيوبيا", "جزر فوكلاند (مالفيناس)", "جزر فارو", "فيجي", "فنلندا", "فرنسا", "غيانا الفرنسية", "بولينيزيا الفرنسية", "الأقاليم الجنوبية الفرنسية (ال)", "الغابون", "غامبيا", "جورجيا", "ألمانيا", "غانا", "جبل طارق", "اليونان", "الأرض الخضراء", "غرينادا", "جوادلوب", "غوام", "غواتيمالا", "غيرنسي", "غينيا", "غينيا - بيساو", "غيانا", "هايتي", "قلب الجزيرة وجزر ماكدونالز", "الكرسي الرسولي", "هندوراس", "هونغ كونغ", "هنغاريا", "أيسلندا", "الهند", "إندونيسيا", "جمهورية إيران الإسلامية", "العراق", "أيرلندا", "جزيرة آيل أوف مان", "إسرائيل", "إيطاليا", "جامايكا", "اليابان", "جيرسي", "الأردن", "كازاخستان", "كينيا", "كيريباتي", "كوريا (جمهورية - الديمقراطية الشعبية)", "جمهورية كوريا", "الكويت", "قيرغيزستان", "جمهورية لاو الديمقراطية الشعبية (ذا)", "لاتفيا", "لبنان", "ليسوتو", "ليبيريا", "ليبيا", "ليختنشتاين", "ليتوانيا", "لوكسمبورغ", "ماكاو", "مدغشقر", "ملاوي", "ماليزيا", "جزر المالديف", "مالي", "مالطا", "جزر مارشال", "مارتينيك", "موريتانيا", "موريشيوس", "مايوت", "المكسيك", "ميكرونيزيا (ولايات - الموحدة)", "مولدوفا (جمهورية)", "موناكو", "منغوليا", "الجبل الأسود", "مونتسيرات", "المغرب", "موزمبيق", "ميانمار", "ناميبيا", "ناورو", "نيبال", "هولندا", "كاليدونيا الجديدة", "نيوزيلندا", "نيكاراغوا", "النيجر", "نيجيريا", "نيوي", "جزيرة نورفولك", "جزر ماريانا الشمالية", "النرويج", "سلطنة عمان", "باكستان", "بالاو", "فلسطين , دولة", "بنما", "بابوا غينيا الجديدة", "باراغواي", "بيرو", "الفلبين", "بيتكيرن", "بولندا", "البرتغال", "بورتوريكو", "دولة قطر", "جمهورية شمال مقدونيا", "رومانيا", "الاتحاد الروسي", "رواندا", "جمع شمل", "سانت بارتيليمي", "سانت هيلانة وأسنسيون وتريستان دا كونها", "سانت كيتس ونيفيس", "القديسة لوسيا", "سانت مارتن (الجزء الفرنسي)", "سانت بيير وميكلون", "سانت فنسنت وجزر غرينادين", "ساموا", "سان مارينو", "ساو تومي وبرينسيبي", "المملكة العربية السعودية", "السنغال", "صربيا", "سيشيل", "سيرا ليون", "سنغافورة", "سانت مارتن (الجزء الهولندي)", "سلوفاكيا", "سلوفينيا", "جزر سليمان", "الصومال", "جنوب أفريقيا", "جورجيا الجنوبية وجزر ساندويتش الجنوبية", "جنوب السودان", "إسبانيا", "سيريلانكا", "السودان", "سورينام", "سفالبارد وجان ماين", "السويد", "سويسرا", "الجمهورية العربية السورية", "تايوان", "طاجيكستان", "جمهورية تنزانيا المتحدة", "تايلاند", "تيمور الشرقية", "توجو", "توكيلاو", "تونغا", "ترينداد وتوباغو", "تونس", "ديك رومي", "تركمانستان", "جزر تركس وكايكوس", "توفالو", "أوغندا", "أوكرانيا", "الإمارات العربية المتحدة", "المملكة المتحدة لبريطانيا العظمى وأيرلندا الشمالية (ال)", "جزر الولايات المتحدة الصغيرة النائية (ال)", "الولايات المتحدة الأمريكية", "أوروغواي", "أوزبكستان", "فانواتو", "فنزويلا (جمهورية - البوليفارية)", "فيتنام", "جزر العذراء البريطانية)", "جزر فيرجن (الولايات المتحدة)", "واليس وفوتونا", "الصحراء الغربية", "اليمن", "زامبيا", "زيمبابوي", "جزر آلاند"],
       nameRules: [function (v) {
         return !!v || "Name is required";
       }],
       checkbox: false,
       message: "",
-      formview: '',
+      formview: "",
       discount_section: false
     };
   },
@@ -548,7 +654,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       //console.log(this.discount);
-      axios.post('/api/check-promo', {
+      axios.post("/api/check-promo", {
         code: this.discount
       }).then(function (data) {
         // console.log(data.data);
@@ -579,7 +685,7 @@ __webpack_require__.r(__webpack_exports__);
         //   // console.log(data.data);
         //   this.errors = data.data.errors;
         // } else {
-        $('#exampleModalCenter').modal('show'); // console.log(data.data.checkid);
+        $("#exampleModalCenter").modal("show"); // console.log(data.data.checkid);
         // console.log(data.data.orderid);
 
         _this3.formview = data.data.orderid;
@@ -610,7 +716,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.form[data-v-dc37895e] {\r\n  width: 60%;\r\n  margin: auto;\n}\n.img[data-v-dc37895e]{\r\n    margin: 20px 0 ;\n}\n.img img[data-v-dc37895e] {\r\n  width: 62px;\r\n  height: 70px;\n}\n.form_discount[data-v-dc37895e] {\r\n  padding: 10px;\n}\n.discount_section[data-v-dc37895e] {\r\n  width: 65%;\n}\n.countity[data-v-dc37895e]{\r\n  margin-top: 20px;\n}\n.check_btn[data-v-dc37895e]{\r\n    border: 1px transparent solid;\r\n    border-radius: 5px;\r\n    color: white;\r\n    font-weight: 500;\r\n    padding: 25px 15px !important;\r\n    text-align: center;\n}\n.price[data-v-dc37895e]{\r\n    position: relative;\r\n    top: -16px;\n}\n@media (min-width: 767px) and (max-width: 991px) {\n.discount_section[data-v-dc37895e] {\r\n    width: 100%;\n}\n}\n.alert[data-v-dc37895e]{\r\n    text-align: center;\n}\n.sm_discount[data-v-dc37895e]{\r\n  display: none;\n}\n@media (max-width:767px)\r\n{\n.lg_discount[data-v-dc37895e]{\r\n    display: none;\n}\n.sm_discount[data-v-dc37895e]{\r\n    display: block;\n}\n}\n.quantity[data-v-dc37895e]{\r\n    position: absolute;\r\n    left: 70px;\r\n    width: 25px;\r\n    height: 25px;\r\n    background: darkgray;\r\n    border-radius: 50%;\r\n    text-align: center;\r\n    line-height: 25px\n}\n@media (max-width:767px){\n.quantity[data-v-dc37895e]{\r\n    left: 78px;\n}\n}\n.clickdown[data-v-dc37895e]{\r\n  cursor: pointer;\r\n  font-size: 18px;\r\n  color: #197bbd;\r\n  padding: 7px;\n}\n.theme--light.v-btn[data-v-dc37895e]:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined) {\r\n    background-color: #f5f5f5;\r\n    margin-top: 9px;\n}\n@media (max-width:767px)\r\n{\n.theme--light.v-btn[data-v-dc37895e]:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined) {\r\n    background-color: #f5f5f5;\r\n    margin-top: 14px;\n}\n}\n.theme--light.v-text-field--filled>.v-input__control>.v-input__slot[data-v-dc37895e] {\r\n    background-color: white !important;\n}\n.theme--light.v-input[data-v-dc37895e]{\r\n  padding: 0 !important;\n}\n.v-text-field>.v-input__control>.v-input__slot>.v-text-field__slot  input[data-v-dc37895e]{\r\n    text-align: start !important;\n}\r\n", ""]);
+exports.push([module.i, "\n.form[data-v-dc37895e] {\n  width: 60%;\n  margin: auto;\n}\n.img[data-v-dc37895e] {\n  margin: 20px 0;\n}\n.img img[data-v-dc37895e] {\n  width: 62px;\n  height: 70px;\n}\n.form_discount[data-v-dc37895e] {\n  padding: 10px;\n}\n.discount_section[data-v-dc37895e] {\n  width: 65%;\n}\n.countity[data-v-dc37895e] {\n  margin-top: 20px;\n}\n.check_btn[data-v-dc37895e] {\n  border: 1px transparent solid;\n  border-radius: 5px;\n  color: white;\n  font-weight: 500;\n  padding: 25px 15px !important;\n  text-align: center;\n}\n.price[data-v-dc37895e] {\n  position: relative;\n  top: -16px;\n}\n@media (min-width: 767px) and (max-width: 991px) {\n.discount_section[data-v-dc37895e] {\n    width: 100%;\n}\n}\n.alert[data-v-dc37895e] {\n  text-align: center;\n}\n.sm_discount[data-v-dc37895e] {\n  display: none;\n}\n@media (max-width: 767px) {\n.lg_discount[data-v-dc37895e] {\n    display: none;\n}\n.sm_discount[data-v-dc37895e] {\n    display: block;\n}\n}\n.quantity[data-v-dc37895e] {\n  position: absolute;\n  left: 70px;\n  width: 25px;\n  height: 25px;\n  background: darkgray;\n  border-radius: 50%;\n  text-align: center;\n  line-height: 25px;\n}\n@media (max-width: 767px) {\n.quantity[data-v-dc37895e] {\n    left: 78px;\n}\n}\n.clickdown[data-v-dc37895e] {\n  cursor: pointer;\n  font-size: 18px;\n  color: #197bbd;\n  padding: 7px;\n}\n.theme--light.v-btn[data-v-dc37895e]:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined) {\n  background-color: #f5f5f5;\n  margin-top: 9px;\n}\n@media (max-width: 767px) {\n.theme--light.v-btn[data-v-dc37895e]:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined) {\n    background-color: #f5f5f5;\n    margin-top: 14px;\n}\n}\n.theme--light.v-text-field--filled > .v-input__control > .v-input__slot[data-v-dc37895e] {\n  background-color: white !important;\n}\n.theme--light.v-input[data-v-dc37895e] {\n  padding: 0 !important;\n}\n.v-text-field > .v-input__control > .v-input__slot > .v-text-field__slot input[data-v-dc37895e] {\n  text-align: start !important;\n}\n", ""]);
 
 // exports
 
@@ -688,7 +794,11 @@ var render = function() {
                         _c("i", {
                           staticClass: "fa fa-shopping-cart ml-2 mr-2"
                         }),
-                        _vm._v(_vm._s(_vm.$t("message.showorder")) + " ")
+                        _vm._v(
+                          "\n          " +
+                            _vm._s(_vm.$t("message.showorder")) +
+                            "\n        "
+                        )
                       ]),
                       _vm._v(" "),
                       _vm.discount_section == false
@@ -706,7 +816,9 @@ var render = function() {
                         [
                           _c("span", { staticStyle: { color: "#737171" } }),
                           _vm._v(
-                            " $ " + _vm._s(_vm.totalprice_2) + "\n            "
+                            "\n          $ " +
+                              _vm._s(_vm.totalprice_2) +
+                              "\n        "
                           )
                         ]
                       ),
@@ -729,7 +841,11 @@ var render = function() {
                         _c("i", {
                           staticClass: "fa fa-shopping-cart ml-2 mr-2"
                         }),
-                        _vm._v(" " + _vm._s(_vm.$t("message.hideorder")) + " ")
+                        _vm._v(
+                          "\n          " +
+                            _vm._s(_vm.$t("message.hideorder")) +
+                            "\n        "
+                        )
                       ]),
                       _vm._v(" "),
                       _vm.discount_section == true
@@ -747,7 +863,9 @@ var render = function() {
                         [
                           _c("span", { staticStyle: { color: "#737171" } }),
                           _vm._v(
-                            " $ " + _vm._s(_vm.totalprice_2) + "\n          "
+                            "\n          $ " +
+                              _vm._s(_vm.totalprice_2) +
+                              "\n        "
                           )
                         ]
                       ),
@@ -769,11 +887,11 @@ var render = function() {
                           "div",
                           {
                             key: item.product.id,
-                            staticClass: "border-bottom  p-2 img"
+                            staticClass: "border-bottom p-2 img"
                           },
                           [
                             _c("span", { staticClass: "quantity" }, [
-                              _vm._v(" " + _vm._s(item.quantity) + " ")
+                              _vm._v(_vm._s(item.quantity))
                             ]),
                             _vm._v(" "),
                             _c("img", { attrs: { src: item.product.img } }),
@@ -788,13 +906,7 @@ var render = function() {
                                 staticClass: "countity",
                                 staticStyle: { float: "right" }
                               },
-                              [
-                                _vm._v(
-                                  "\n                $" +
-                                    _vm._s(item.price) +
-                                    "\n            "
-                                )
-                              ]
+                              [_vm._v("$" + _vm._s(item.price))]
                             ),
                             _vm._v(" "),
                             _c("div", { staticStyle: { clear: "both" } })
@@ -913,7 +1025,7 @@ var render = function() {
                               padding: "10px"
                             }
                           },
-                          [_vm._v(" Total ")]
+                          [_vm._v("Total")]
                         ),
                         _vm._v(" "),
                         _c("span", { staticStyle: { float: "right" } }, [
@@ -926,7 +1038,7 @@ var render = function() {
                               }
                             },
                             [
-                              _vm._v("USD   "),
+                              _vm._v("\n              USD   \n              "),
                               _c(
                                 "strong",
                                 {
@@ -983,9 +1095,7 @@ var render = function() {
                         },
                         [
                           _c("div", { staticClass: "moda-body" }, [
-                            _vm._v(
-                              "\n                        ss\n                  "
-                            ),
+                            _vm._v("\n              ss\n              "),
                             _c("form", {
                               staticClass: "paymentWidgets",
                               attrs: {
@@ -1034,7 +1144,7 @@ var render = function() {
                             },
                             [
                               _c("h1", { staticClass: "text-center" }, [
-                                _vm._v(" Done")
+                                _vm._v("Done")
                               ]),
                               _vm._v(" "),
                               _c(
@@ -1062,7 +1172,7 @@ var render = function() {
                       _c(
                         "v-row",
                         [
-                          _c("h4", [_vm._v("Contacts information ")]),
+                          _c("h4", [_vm._v("Contacts information")]),
                           _vm._v(" "),
                           _c(
                             "v-col",
@@ -1344,7 +1454,7 @@ var render = function() {
                       "div",
                       {
                         key: item.product.id,
-                        staticClass: "border-bottom  p-2 img"
+                        staticClass: "border-bottom p-2 img"
                       },
                       [
                         _c("span", { staticClass: "quantity" }, [
@@ -1363,13 +1473,7 @@ var render = function() {
                             staticClass: "countity",
                             staticStyle: { float: "right" }
                           },
-                          [
-                            _vm._v(
-                              "\n              $" +
-                                _vm._s(item.price) +
-                                "\n          "
-                            )
-                          ]
+                          [_vm._v("$" + _vm._s(item.price))]
                         ),
                         _vm._v(" "),
                         _c("div", { staticStyle: { clear: "both" } })
@@ -1483,7 +1587,7 @@ var render = function() {
                           "padding-left": "10px"
                         }
                       },
-                      [_vm._v(" Total ")]
+                      [_vm._v("Total")]
                     ),
                     _vm._v(" "),
                     _c("span", { staticStyle: { float: "right" } }, [
@@ -1496,7 +1600,7 @@ var render = function() {
                           }
                         },
                         [
-                          _vm._v("USD   "),
+                          _vm._v("\n              USD   \n              "),
                           _c(
                             "strong",
                             {
@@ -1543,7 +1647,11 @@ var render = function() {
                         _c("i", {
                           staticClass: "fa fa-shopping-cart ml-2 mr-2"
                         }),
-                        _vm._v(_vm._s(_vm.$t("message.showorder")) + " ")
+                        _vm._v(
+                          "\n          " +
+                            _vm._s(_vm.$t("message.showorder")) +
+                            "\n        "
+                        )
                       ]),
                       _vm._v(" "),
                       _vm.discount_section == false
@@ -1561,7 +1669,9 @@ var render = function() {
                         [
                           _c("span", { staticStyle: { color: "#737171" } }),
                           _vm._v(
-                            " $ " + _vm._s(_vm.totalprice_2) + "\n            "
+                            "\n          $ " +
+                              _vm._s(_vm.totalprice_2) +
+                              "\n        "
                           )
                         ]
                       ),
@@ -1584,7 +1694,11 @@ var render = function() {
                         _c("i", {
                           staticClass: "fa fa-shopping-cart ml-2 mr-2"
                         }),
-                        _vm._v(" " + _vm._s(_vm.$t("message.hideorder")) + " ")
+                        _vm._v(
+                          "\n          " +
+                            _vm._s(_vm.$t("message.hideorder")) +
+                            "\n        "
+                        )
                       ]),
                       _vm._v(" "),
                       _vm.discount_section == true
@@ -1602,7 +1716,9 @@ var render = function() {
                         [
                           _c("span", { staticStyle: { color: "#737171" } }),
                           _vm._v(
-                            " $ " + _vm._s(_vm.totalprice_2) + "\n          "
+                            "\n          $ " +
+                              _vm._s(_vm.totalprice_2) +
+                              "\n        "
                           )
                         ]
                       ),
@@ -1624,11 +1740,11 @@ var render = function() {
                           "div",
                           {
                             key: item.product.id,
-                            staticClass: "border-bottom  p-2 img"
+                            staticClass: "border-bottom p-2 img"
                           },
                           [
                             _c("span", { staticClass: "quantity" }, [
-                              _vm._v(" " + _vm._s(item.quantity) + " ")
+                              _vm._v(_vm._s(item.quantity))
                             ]),
                             _vm._v(" "),
                             _c("img", { attrs: { src: item.product.img } }),
@@ -1643,13 +1759,7 @@ var render = function() {
                                 staticClass: "countity",
                                 staticStyle: { float: "right" }
                               },
-                              [
-                                _vm._v(
-                                  "\n                $" +
-                                    _vm._s(item.price) +
-                                    "\n            "
-                                )
-                              ]
+                              [_vm._v("$" + _vm._s(item.price))]
                             ),
                             _vm._v(" "),
                             _c("div", { staticStyle: { clear: "both" } })
@@ -1791,7 +1901,7 @@ var render = function() {
                                 }
                               },
                               [
-                                _vm._v("USD  "),
+                                _vm._v("\n              USD  \n              "),
                                 _c(
                                   "strong",
                                   {
@@ -1855,7 +1965,7 @@ var render = function() {
                             },
                             [
                               _c("h1", { staticClass: "text-center" }, [
-                                _vm._v(" Done")
+                                _vm._v("Done")
                               ]),
                               _vm._v(" "),
                               _c(
@@ -1881,7 +1991,7 @@ var render = function() {
                         : _vm._e(),
                       _vm._v(" "),
                       _c("h4", { staticClass: "text-right" }, [
-                        _vm._v("\n            تسجيل البيانات\n          ")
+                        _vm._v("تسجيل البيانات")
                       ]),
                       _vm._v(" "),
                       _c(
@@ -1892,7 +2002,7 @@ var render = function() {
                             { attrs: { cols: "12", md: "12" } },
                             [
                               _c("label", { staticStyle: { float: "right" } }, [
-                                _vm._v("البريد الإلكتروني ")
+                                _vm._v("البريد الإلكتروني")
                               ]),
                               _vm._v(" "),
                               _c("div", { staticStyle: { clear: "both" } }),
@@ -2210,7 +2320,7 @@ var render = function() {
                       "div",
                       {
                         key: item.product.id,
-                        staticClass: "border-bottom  p-2 img"
+                        staticClass: "border-bottom p-2 img"
                       },
                       [
                         _c("img", { attrs: { src: item.product.img } }),
@@ -2229,13 +2339,7 @@ var render = function() {
                             staticClass: "countity",
                             staticStyle: { float: "right" }
                           },
-                          [
-                            _vm._v(
-                              "\n               $" +
-                                _vm._s(item.price) +
-                                "\n          "
-                            )
-                          ]
+                          [_vm._v("$" + _vm._s(item.price))]
                         ),
                         _vm._v(" "),
                         _c("div", { staticStyle: { clear: "both" } })
@@ -2372,7 +2476,7 @@ var render = function() {
                           }
                         },
                         [
-                          _vm._v("USD  "),
+                          _vm._v("\n              USD  \n              "),
                           _c(
                             "strong",
                             {
@@ -2381,7 +2485,7 @@ var render = function() {
                                 "font-size": "22px"
                               }
                             },
-                            [_vm._v(" $" + _vm._s(_vm.totalprice_2))]
+                            [_vm._v("$" + _vm._s(_vm.totalprice_2))]
                           )
                         ]
                       )
@@ -2431,7 +2535,7 @@ var staticRenderFns = [
               },
               [
                 _c("div", { staticClass: "moda-body" }, [
-                  _vm._v("\n                        ss\n                  "),
+                  _vm._v("\n              ss\n              "),
                   _c("form", {
                     staticClass: "paymentWidgets",
                     attrs: {
@@ -2518,7 +2622,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_style_index_0_id_dc37895e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Payment.vue?vue&type=style&index=0&id=dc37895e&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Page/Payment.vue?vue&type=style&index=0&id=dc37895e&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_style_index_0_id_dc37895e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_style_index_0_id_dc37895e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_style_index_0_id_dc37895e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_style_index_0_id_dc37895e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_style_index_0_id_dc37895e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_style_index_0_id_dc37895e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_style_index_0_id_dc37895e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),

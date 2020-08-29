@@ -2162,6 +2162,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -2184,10 +2185,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
     setLocale: function setLocale() {
-      if (this.$i18n.locale == 'en') {
-        this.$i18n.locale = 'ar';
+      if (this.$i18n.locale == "en") {
+        this.$i18n.locale = "ar";
+        if (this.$route.name == "about") this.$vuetify.rtl = true;else this.$vuetify.rtl = false;
       } else {
-        this.$i18n.locale = 'en';
+        this.$i18n.locale = "en";
+        this.$vuetify.rtl = false;
+      }
+    }
+  },
+  watch: {
+    $route: function $route(newRoute, oldRoute) {
+      if (this.$i18n.locale == "ar") {
+        if (newRoute.name != "shop") this.$vuetify.rtl = true;else this.$vuetify.rtl = false;
       }
     }
   }
@@ -2330,6 +2340,50 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2344,6 +2398,13 @@ __webpack_require__.r(__webpack_exports__);
       return this.$store.getters.cartItemCount;
     }
   },
+  watch: {
+    $route: function $route(nv, ov) {
+      if ($(".navbar-collapse").has("show")) {
+        $(".navbar-collapse").removeClass("show");
+      }
+    }
+  },
   components: {
     LanguageDropdown: _LanguageDropdown__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
@@ -2352,27 +2413,48 @@ __webpack_require__.r(__webpack_exports__);
       showModal: false,
       value: 1,
       pallatecart: [],
-      cartcount: '',
+      cartcount: "",
       expand: false,
-      mycart: ''
+      mycart: ""
     };
   },
   mounted: function mounted() {
     var _this = this;
 
+    //       let offsetContent = $('.content').offset().top;
+    // let offsetFooter = $('.footer').offset().footer;
+    // $(document).scroll(function() {
+    //   let y = $(this).scrollTop();
+    //   if (y > offsetContent && y < offsetFooter) {
+    //     $('.hidden-element').fadeIn();
+    //   } else {
+    //     $('.hidden-element').fadeOut();
+    //   }
+    // });
+    window.addEventListener("scroll", this.handleScroll);
     this.mycart = $(".modal-wrapper"); // let infoUrl = window.location.href
     // let infoUrlTarget =infoUrl.split('/').slice(-1)[0]
     // $("."+infoUrlTarget).addClass('active').siblings().removeClass('active')
     // console.log("."+infoUrlTarget)
 
-    axios.get('/api/getpallatecart').then(function (res) {
+    axios.get("/api/getpallatecart").then(function (res) {
       _this.cartcount = res.data.palettes.length;
       _this.pallatecart = res.data.palettes;
     })["catch"](function (error) {
       return console.log(error.response.data);
     });
   },
+  destroyed: function destroyed() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
   methods: {
+    handleScroll: function handleScroll(event) {
+      if (this.$route.name == "shop") setTimeout(function () {
+        var footer = document.getElementById("footer");
+        var addToCart = document.getElementById("addToCartsm");
+        if (window.scrollY > 5000) addToCart.style.display = "none";else addToCart.style.display = "";
+      }, 50);
+    },
     closeModal: function closeModal() {
       var mycarts = this.$refs.mycart;
       $(mycarts).css({
@@ -2394,13 +2476,13 @@ __webpack_require__.r(__webpack_exports__);
       $(".navbar-collapse").toggleClass("show");
     },
     decreaseProduct: function decreaseProduct(product) {
-      this.$store.dispatch('decreaseProduct', {
+      this.$store.dispatch("decreaseProduct", {
         product: product,
         quantity: 1
       });
     },
     addToCart: function addToCart(product) {
-      this.$store.dispatch('addProductToCart', {
+      this.$store.dispatch("addProductToCart", {
         product: product,
         quantity: 1
       });
@@ -2424,10 +2506,10 @@ __webpack_require__.r(__webpack_exports__);
     remove: function remove($id) {
       var _this2 = this;
 
-      axios.post('/api/removefromcart?id=' + $id).then(function (res) {
+      axios.post("/api/removefromcart?id=" + $id).then(function (res) {
         _this2.pallatecart.splice(res.data.paletteCart, 1);
 
-        $('#count')[0].innerText--;
+        $("#count")[0].innerText--;
       })["catch"](function (error) {
         return console.log(error.response.data);
       });
@@ -6879,7 +6961,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.row[data-v-78547fe5]{\r\n    margin-left: 0;\r\n    margin-right: 0;\n}\n.col-lg-3[data-v-78547fe5],.col-sm-6[data-v-78547fe5]{\r\n    padding: 0;\n}\n@media (max-width: 991px){\n.footer-col-2[data-v-78547fe5] {\r\n    width: 91%;\r\n    margin-left: 5%;\n}\n}\n.lead[data-v-78547fe5]{\r\n    font-size: 16px!important;\n}\r\n\r\n\r\n", ""]);
+exports.push([module.i, "\n.row[data-v-78547fe5] {\n  margin-left: 0;\n  margin-right: 0;\n}\n.col-lg-3[data-v-78547fe5],\n.col-sm-6[data-v-78547fe5] {\n  padding: 0;\n}\n@media (max-width: 991px) {\n.footer-col-2[data-v-78547fe5] {\n    width: 91%;\n    margin-left: 5%;\n}\n}\n@media (max-width: 767px) {\n.v-application ol[data-v-78547fe5],\n  .v-application ul[data-v-78547fe5] {\n    padding-left: 0px;\n}\n}\n.lead[data-v-78547fe5] {\n  font-size: 16px !important;\n}\n", ""]);
 
 // exports
 
@@ -6898,7 +6980,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nspan[data-v-3f099f5a]{\n  cursor: pointer;\n}\n", ""]);
+exports.push([module.i, "\nspan[data-v-3f099f5a] {\n  cursor: pointer;\n}\n", ""]);
 
 // exports
 
@@ -6917,7 +6999,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.modal-mask {\r\n  position: fixed;\r\n  top: 0;\r\n\r\n  left: 100%;\r\n  width: 100%;\r\n  display: none;\r\n\r\n  display: block;\r\n  transition: left .8s , backgroundColor 0s;\n}\n.modal-wrapper {\r\n  display: table-cell;\r\n  vertical-align: middle;\r\n  float: right;\r\n  position: relative;\r\n\r\n  transition: all 1s;\r\n  top: 67px;\r\n  /* left: 15px; */\n}\n.modal-content{\r\n    top: -26px;\r\n    overflow: scroll;\r\n    width: 436px;\r\n    min-height: 685px;\r\n    border-radius: 0;\r\n    left: 4%;\r\n    background: #f2efeb;\n}\n@media(min-width:768px){\n.modal-content{\r\n        top: -95px;\n}\n}\n@media(min-width:991px)\r\n{\n.modal-content{\r\n        min-height: 860px;\n}\n}\n.modal-body {\r\n    position: relative;\r\n    -ms-flex: 1 1 auto;\r\n    max-height: 680px;\r\n    flex: 1 1 auto;\r\n    overflow: auto;\r\n    padding: 1rem;\n}\r\n/* .modal-body{\r\n    position: absolute;\r\n    width: 400px;\r\n        overflow: scroll;\r\n} */\n.modal-body img{\r\n    width: 80px;\r\n    height: 80px;\n}\n.pro{\r\n    width: 124%;\n}\n.pro button {\r\n    margin-top:-37px ;\n}\r\n\r\n/* @media(max-width:996px){\r\n\r\n    li.nav-item{\r\n        width: 67px;\r\n    }\r\n} */\r\n/* .nav-btns{\r\n    margin-left: 27px;\r\n} */\n.delete{\r\n     width: 90px !important;\r\n    float: right;\n}\n.navbar-brand img{\r\n    width: 42px;\n}\n.v-text-field>.v-input__control>.v-input__slot:before {\r\n    border-style: none !important;\n}\n.theme--light.v-input{\r\n    border: 1px solid #cfcfcf;\r\n    padding:8px 10px 1px;\n}\n.v-text-field>.v-input__control>.v-input__slot:before {\r\n    border-color: inherit;\r\n    border-style: dashed !important;\r\n    border-width:  0 0 !important;\n}\n.v-text-field__details{\r\n  display: none;\n}\n.v-text-field>.v-input__control>.v-input__slot>.v-text-field__slot  input{\r\n    text-align: center;\r\n    margin-left: -2px;\n}\n.control-increse{\r\ntransform: scale(.8);\n}\n.move{\r\n    position: relative;\r\n    font-size:11px;\r\n    color: #6a6a6a;\r\n    left: 12px;\n}\n.move1{\r\n   color:#0074d9 ;\r\n    font-size: 12px;\n}\n.delete {\r\n    font-size: 10px;\r\n    position: relative;\r\n    margin: 8px 0;\r\n    padding: 0;\r\n    letter-spacing: .2em;\r\n    text-transform: uppercase;\r\n    color: #6a6a6a;\r\n    border: 0;\r\n    background: none;\r\n    width: 50px !important;\n}\n.delete:before {\r\n    position: absolute;\r\n    bottom: -1px;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 1px;\r\n    content: \"\";\r\n    transition: transform .2s ease-in-out;\r\n    transform: scale(1);\r\n    transform-origin: left center;\r\n    background: currentColor;\n}\n.delete:hover:before{\r\n     transform: scaleX(0);\n}\n.modal-footer{\r\ntransform: translateY(-95px);\r\n background: #f2efeb;\n}\n.checkout{\r\nfont-size: 12px!important;\r\n    /* display: flex; */\r\n    padding: 12px 100px;\r\n    color: #fff;\r\n    border: 1px solid transparent;\r\n    border-radius: 5px;\r\n    background: #000;\r\n    align-items: center;\r\n    justify-content: center;\r\n    position: relative;\r\n    top: 23px;\n}\n.checkout:hover{\r\n    background: white;\r\n    color: black;\r\n    border: 2px solid black;\n}\nsvg{\r\n    stroke-width: 1.5px;\r\n    stroke: #000;\r\n    width: 15px;\r\n    height: 15px;\n}\n.close{\r\n    color: black!important;\n}\n.cart-empty{\r\n    position: absolute;\r\n    font-size: 15px;\r\n    top: 50%;\r\n    left: 50%;\r\n    width: auto;\r\n    transform: translate(-50%,-50%);\r\n    -webkit-animation: i .8s cubic-bezier(.215,.61,.355,1);\r\n            animation: i .8s cubic-bezier(.215,.61,.355,1);\n}\n.modal-title,.cart-empty{\r\n    text-align: center;\r\n    letter-spacing: .2em;\r\n    font-weight: 300;\r\n    text-transform: uppercase;\n}\n@-webkit-keyframes i{0%{transform:translate(-50%,calc(-50% + 35px));opacity:0}to{transform:translate(-50%,-50%);opacity:1}}\n@keyframes i{0%{transform:translate(-50%,calc(-50% + 35px));opacity:0}to{transform:translate(-50%,-50%);opacity:1}}\n.lang:hover{\r\n    border-bottom: 2px solid rgb(27, 26, 26);\n}\n.sm{\r\n    display: none;\n}\n@media(max-width: 991px)\r\n{\n.lg{\r\n        display: none;\n}\n.sm{\r\n        display: block;\n}\n}\n@media (max-width: 991px){\n.navbar-brand{\r\n        position: absolute;\r\n        left: 47%;\r\n        top: 2px\n}\n.nav_sm_btn{\r\n        position: absolute;\r\n        right: 1%;\r\n        top: -4px;\n}\n}\n@media (max-width:299px){\n.modal-content {\r\n        width: 240px;\r\n        left: 2%;\n}\n}\n@media (min-width:300px ) and (max-width:316px){\n.modal-content {\r\n        width: 280px;\r\n        min-height: 511px;\n}\n.modal-body{\r\n        min-height: 571px;\n}\n}\n@media (min-width:317px ) and (max-width:336px){\n.modal-content {\r\n        width: 300px;\r\n        min-height: 511px;\n}\n.modal-body{\r\n        min-height: 571px;\n}\n}\n@media (min-width:337px ) and (max-width:365px){\n.modal-content {\r\n        width: 320px;\r\n        min-height: 511px;\n}\n.modal-body{\r\n        min-height: 571px;\n}\n}\n@media (min-width:366px ) and (max-width:396px){\n.modal-content {\r\n        width: 350px;\r\n        min-height: 511px;\n}\n.modal-body{\r\n        min-height: 571px;\n}\n}\n@media (min-width:397px ) and (max-width:440px){\n.modal-content {\r\n        width: 383px;\r\n        min-height: 511px;\n}\n.modal-body{\r\n        min-height: 571px;\n}\n}\n@media (min-width:441px ) and (max-width:457px){\n.modal-content {\r\n        width: 425px;\r\n        min-height: 511px;\n}\n.modal-body{\r\n        min-height: 571px;\n}\n}\n@media (min-width:458px) and (max-width: 767px)\r\n{\n.modal-content{\r\n        min-height: 624px;\n}\n}\n.lang_sm{\r\n    display: none;\n}\n.nav_sm_btn{\r\n    display: none;\n}\n@media(max-width:991px)\r\n{\n.lang_sm{\r\n        display: block;\n}\n.lang_lg{\r\n        display: none;\n}\n.nav_lg_btn{\r\n        display: none;\n}\n.nav_sm_btn{\r\n        display: block;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.modal-mask {\n  position: fixed;\n  top: 0;\n  height: 100vh;\n  left: 100%;\n  width: 100%;\n  display: none;\n\n  display: block;\n  transition: left 0.8s, backgroundColor 0s;\n}\n.modal-wrapper {\n  display: table-cell;\n  vertical-align: middle;\n  float: right;\n  position: relative;\n\n  transition: all 1s;\n  top: 67px;\n  /* left: 15px; */\n}\n.modal-content {\n  top: -26px;\n  overflow: scroll;\n  width: 436px;\n  min-height: 685px;\n  border-radius: 0;\n  left: 4%;\n  background: #f2efeb;\n}\n@media (min-width: 768px) {\n.modal-content {\n    top: -95px;\n}\n}\n@media (min-width: 991px) {\n.modal-content {\n    min-height: 860px;\n}\n}\n.modal-body {\n  position: relative;\n  -ms-flex: 1 1 auto;\n  max-height: 90vh;\n  flex: 1 1 auto;\n  overflow: auto;\n  padding: 1rem;\n}\n/* .modal-body{\n    position: absolute;\n    width: 400px;\n        overflow: scroll;\n} */\n.modal-body img {\n  width: 80px;\n  height: 80px;\n}\n.pro {\n  width: 124%;\n}\n.pro button {\n  margin-top: -37px;\n}\n\n/* @media(max-width:996px){\n\n    li.nav-item{\n        width: 67px;\n    }\n} */\n/* .nav-btns{\n    margin-left: 27px;\n} */\n.delete {\n  width: 90px !important;\n  float: right;\n}\n.navbar-brand img {\n  width: 42px;\n}\n.v-text-field > .v-input__control > .v-input__slot:before {\n  border-style: none !important;\n}\n.v-text-field > .v-input__control > .v-input__slot:after {\n  border: none !important;\n}\n.theme--light.v-input {\n  border: 1px solid #cfcfcf;\n  padding: 8px 10px 1px;\n}\n.v-text-field > .v-input__control > .v-input__slot:before {\n  border-color: inherit;\n  border-style: dashed !important;\n  border-width: 0 0 !important;\n}\n.v-text-field__details {\n  display: none;\n}\n.v-text-field > .v-input__control > .v-input__slot > .v-text-field__slot input {\n  text-align: center;\n  margin-left: -2px;\n}\n.control-increse {\n  transform: scale(0.8);\n}\n.move {\n  position: relative;\n  font-size: 11px;\n  color: #6a6a6a;\n  left: 12px;\n}\n.move1 {\n  color: #0074d9;\n  font-size: 12px;\n}\n.delete {\n  font-size: 10px;\n  position: relative;\n  margin: 8px 0;\n  padding: 0;\n  letter-spacing: 0.2em;\n  text-transform: uppercase;\n  color: #6a6a6a;\n  border: 0;\n  background: none;\n  width: 50px !important;\n}\n.delete:before {\n  position: absolute;\n  bottom: -1px;\n  left: 0;\n  width: 100%;\n  height: 1px;\n  content: \"\";\n  transition: transform 0.2s ease-in-out;\n  transform: scale(1);\n  transform-origin: left center;\n  background: currentColor;\n}\n.delete:hover:before {\n  transform: scaleX(0);\n}\n.modal-footer {\n  transform: translateY(-95px);\n  background: #f2efeb;\n}\n.checkout {\n  font-size: 12px !important;\n  /* display: flex; */\n  padding: 12px 100px;\n  color: #fff;\n  border: 1px solid transparent;\n  border-radius: 5px;\n  background: #000;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n  top: 23px;\n}\n.checkout:hover {\n  background: white;\n  color: black;\n  border: 2px solid black;\n}\nsvg {\n  stroke-width: 1.5px;\n  stroke: #000;\n  width: 15px;\n  height: 15px;\n}\n.close {\n  color: black !important;\n}\n.cart-empty {\n  position: absolute;\n  font-size: 15px;\n  top: 50%;\n  left: 50%;\n  width: auto;\n  transform: translate(-50%, -50%);\n  -webkit-animation: i 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);\n          animation: i 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);\n}\n.modal-title,\n.cart-empty {\n  text-align: center;\n  letter-spacing: 0.2em;\n  font-weight: 300;\n  text-transform: uppercase;\n}\n@-webkit-keyframes i {\n0% {\n    transform: translate(-50%, calc(-50% + 35px));\n    opacity: 0;\n}\nto {\n    transform: translate(-50%, -50%);\n    opacity: 1;\n}\n}\n@keyframes i {\n0% {\n    transform: translate(-50%, calc(-50% + 35px));\n    opacity: 0;\n}\nto {\n    transform: translate(-50%, -50%);\n    opacity: 1;\n}\n}\n.lang:hover {\n  border-bottom: 2px solid rgb(27, 26, 26);\n}\n.sm {\n  display: none;\n}\n@media (max-width: 991px) {\n.lg {\n    display: none;\n}\n.sm {\n    display: block;\n}\n}\n@media (max-width: 991px) {\n.navbar-brand {\n    position: absolute;\n    left: 47%;\n    top: 2px;\n}\n.nav_sm_btn {\n    position: absolute;\n    right: 1%;\n    top: -4px;\n}\n}\n@media (max-width: 299px) {\n.modal-content {\n    width: 240px;\n    left: 2%;\n}\n}\n@media (min-width: 300px) and (max-width: 316px) {\n.modal-content {\n    width: 280px;\n    min-height: 511px;\n}\n.modal-body {\n    min-height: 85vh;\n}\n}\n@media (min-width: 317px) and (max-width: 336px) {\n.modal-content {\n    width: 300px;\n    min-height: 511px;\n}\n.modal-body {\n    min-height: 85vh;\n}\n}\n@media (min-width: 337px) and (max-width: 365px) {\n.modal-content {\n    width: 320px;\n    min-height: 511px;\n}\n.modal-body {\n    min-height: 85vh;\n}\n}\n@media (min-width: 366px) and (max-width: 396px) {\n.modal-content {\n    width: 350px;\n    min-height: 511px;\n}\n.modal-body {\n    min-height: 85vh;\n}\n}\n@media (min-width: 397px) and (max-width: 440px) {\n.modal-content {\n    width: 383px;\n    min-height: 511px;\n}\n.modal-body {\n    min-height: 85vh;\n}\n}\n@media (min-width: 441px) and (max-width: 457px) {\n.modal-content {\n    width: 425px;\n    min-height: 511px;\n}\n.modal-body {\n    min-height: 85vh;\n}\n}\n@media (min-width: 458px) and (max-width: 767px) {\n.modal-content {\n    min-height: 624px;\n}\n}\n.lang_sm {\n  display: none;\n}\n.nav_sm_btn {\n  display: none;\n}\n@media (max-width: 991px) {\n.lang_sm {\n    display: block;\n}\n.lang_lg {\n    display: none;\n}\n.nav_lg_btn {\n    display: none;\n}\n.nav_sm_btn {\n    display: block;\n}\n}\n.navbar-nav {\n  display: flex;\n  align-items: center;\n}\n.control-increse input {\n  border: none;\n}\n", ""]);
 
 // exports
 
@@ -7106,7 +7188,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "width", function() { return width; });
 /* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
 /**
- * Dom7 3.0.0-alpha.7
+ * Dom7 3.0.0-alpha.9
  * Minimalistic JavaScript library for DOM manipulation, with a jQuery-compatible API
  * https://framework7.io/docs/dom7.html
  *
@@ -7114,7 +7196,7 @@ __webpack_require__.r(__webpack_exports__);
  *
  * Licensed under MIT
  *
- * Released on: July 14, 2020
+ * Released on: August 25, 2020
  */
 
 
@@ -53030,152 +53112,175 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("footer", { staticClass: "myhome" }, [
-    _c("div", { staticClass: "row mb-3 pl-2" }, [
-      _c("div", { staticClass: "col-md-5 footer-col-1" }, [
-        _c("a", { staticClass: "footer-logo", attrs: { href: "" } }, [
-          _vm._v(_vm._s(_vm.$t("message.logo")))
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "footer-info" }, [
-          _c("p", { staticClass: "lead" }, [
-            _vm._v(_vm._s(_vm.$t("message.addressfooter"))),
-            _c("br")
-          ])
-        ]),
-        _vm._v(" "),
-        _vm._m(0)
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-7 " }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-6 col-lg-4 mb-2" }, [
-            _c(
-              "ul",
-              { staticClass: "footer-menu" },
-              [
-                _c("li", { staticClass: "footer-title" }, [
-                  _vm._v(
-                    "\n                            " +
-                      _vm._s(_vm.$t("message.company")) +
-                      "\n                        "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("router-link", { attrs: { to: "/about" } }, [
-                  _c("li", { staticClass: "footer-menu-item" }, [
-                    _c("a", { staticClass: "footer-menu-item-link" }, [
-                      _vm._v(_vm._s(_vm.$t("message.aboutusfooter")))
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "router-link",
-                  {
-                    attrs: {
-                      to: { path: "/about", query: { mydata: "artist" } }
-                    }
-                  },
-                  [
-                    _c("li", { staticClass: "footer-menu-item" }, [
-                      _c("a", { staticClass: "footer-menu-item-link" }, [
-                        _vm._v(_vm._s(_vm.$t("message.artistfooter")))
-                      ])
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "router-link",
-                  {
-                    attrs: {
-                      to: { path: "/about", query: { mydata: "contact" } }
-                    }
-                  },
-                  [
-                    _c("li", { staticClass: "footer-menu-item" }, [
-                      _c("a", { staticClass: "footer-menu-item-link" }, [
-                        _vm._v(_vm._s(_vm.$t("message.contactfooter")))
-                      ])
-                    ])
-                  ]
-                )
-              ],
-              1
-            )
+  return _c("footer", { staticClass: "myhome", attrs: { id: "footer" } }, [
+    _c(
+      "div",
+      {
+        staticClass: "row mb-3 pl-2 ahmedaaaaaaaa",
+        staticStyle: { direction: "ltr" }
+      },
+      [
+        _c("div", { staticClass: "col-md-5 footer-col-1" }, [
+          _c("a", { staticClass: "footer-logo", attrs: { href: "" } }, [
+            _vm._v(_vm._s(_vm.$t("message.logo")))
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-md-6 col-lg-4 mb-2" }, [
-            _c(
-              "ul",
-              { staticClass: "footer-menu" },
-              [
-                _c("li", { staticClass: "footer-title" }, [
-                  _vm._v(
-                    "\n                            " +
-                      _vm._s(_vm.$t("message.others")) +
-                      "\n                        "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("router-link", { attrs: { to: "/terms" } }, [
-                  _c("li", { staticClass: "footer-menu-item" }, [
-                    _c("a", { staticClass: "footer-menu-item-link" }, [
-                      _vm._v(_vm._s(_vm.$t("message.termsfooter")))
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("router-link", { attrs: { to: "/privacy" } }, [
-                  _c("li", { staticClass: "footer-menu-item" }, [
-                    _c("a", { staticClass: "footer-menu-item-link" }, [
-                      _vm._v(_vm._s(_vm.$t("message.privacyfooter")))
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("router-link", { attrs: { to: "/refund" } }, [
-                  _c("li", { staticClass: "footer-menu-item" }, [
-                    _c("a", { staticClass: "footer-menu-item-link" }, [
-                      _vm._v(_vm._s(_vm.$t("message.refundpolicy")))
-                    ])
-                  ])
-                ])
-              ],
-              1
-            )
+          _c("div", { staticClass: "footer-info" }, [
+            _c("p", { staticClass: "lead" }, [
+              _vm._v(
+                "\n          " +
+                  _vm._s(_vm.$t("message.addressfooter")) +
+                  "\n          "
+              ),
+              _c("br")
+            ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-md-6 col-lg-4 mb-2 pl-0" }, [
-            _c(
-              "div",
-              { staticClass: "footer-col footer-col-2" },
-              [
-                _c("h3", { staticClass: "footer-title" }, [
-                  _vm._v(_vm._s(_vm.$t("message.Newsletter")))
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.$t("message.signup")))]),
-                _vm._v(" "),
+          _vm._m(0)
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-7" }, [
+          _c(
+            "div",
+            { staticClass: "row", staticStyle: { "text-align": "center" } },
+            [
+              _c("div", { staticClass: "col-md-6 col-lg-4 mb-2" }, [
                 _c(
-                  "router-link",
-                  {
-                    attrs: { to: { path: "/about", query: { mydata: "join" } } }
-                  },
+                  "ul",
+                  { staticClass: "footer-menu" },
                   [
-                    _c("a", { staticClass: "btn signUp btn-primary" }, [
-                      _vm._v(_vm._s(_vm.$t("message.SUBSCRIBE")))
-                    ])
-                  ]
+                    _c("li", { staticClass: "footer-title" }, [
+                      _vm._v(_vm._s(_vm.$t("message.company")))
+                    ]),
+                    _vm._v(" "),
+                    _c("router-link", { attrs: { to: "/about" } }, [
+                      _c("li", { staticClass: "footer-menu-item" }, [
+                        _c("a", { staticClass: "footer-menu-item-link" }, [
+                          _vm._v(_vm._s(_vm.$t("message.aboutusfooter")))
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        attrs: {
+                          to: { path: "/about", query: { mydata: "artist" } }
+                        }
+                      },
+                      [
+                        _c("li", { staticClass: "footer-menu-item" }, [
+                          _c("a", { staticClass: "footer-menu-item-link" }, [
+                            _vm._v(_vm._s(_vm.$t("message.artistfooter")))
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        attrs: {
+                          to: { path: "/about", query: { mydata: "contact" } }
+                        }
+                      },
+                      [
+                        _c("li", { staticClass: "footer-menu-item" }, [
+                          _c("a", { staticClass: "footer-menu-item-link" }, [
+                            _vm._v(_vm._s(_vm.$t("message.contactfooter")))
+                          ])
+                        ])
+                      ]
+                    )
+                  ],
+                  1
                 )
-              ],
-              1
-            )
-          ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "col-md-6 col-lg-4 mb-2",
+                  style: { "text-align:right": true }
+                },
+                [
+                  _c(
+                    "ul",
+                    { staticClass: "footer-menu" },
+                    [
+                      _c("li", { staticClass: "footer-title" }, [
+                        _vm._v(_vm._s(_vm.$t("message.others")))
+                      ]),
+                      _vm._v(" "),
+                      _c("router-link", { attrs: { to: "/terms" } }, [
+                        _c("li", { staticClass: "footer-menu-item" }, [
+                          _c("a", { staticClass: "footer-menu-item-link" }, [
+                            _vm._v(_vm._s(_vm.$t("message.termsfooter")))
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("router-link", { attrs: { to: "/privacy" } }, [
+                        _c("li", { staticClass: "footer-menu-item" }, [
+                          _c("a", { staticClass: "footer-menu-item-link" }, [
+                            _vm._v(_vm._s(_vm.$t("message.privacyfooter")))
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("router-link", { attrs: { to: "/refund" } }, [
+                        _c("li", { staticClass: "footer-menu-item" }, [
+                          _c("a", { staticClass: "footer-menu-item-link" }, [
+                            _vm._v(_vm._s(_vm.$t("message.refundpolicy")))
+                          ])
+                        ])
+                      ])
+                    ],
+                    1
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "col-md-6 col-lg-4 mb-2 pl-0",
+                  style: { "text-align:right": _vm.$i18n.locale == "ar" }
+                },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "footer-col footer-col-2" },
+                    [
+                      _c("h3", { staticClass: "footer-title" }, [
+                        _vm._v(_vm._s(_vm.$t("message.Newsletter")))
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v(_vm._s(_vm.$t("message.signup")))]),
+                      _vm._v(" "),
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { path: "/about", query: { mydata: "join" } }
+                          }
+                        },
+                        [
+                          _c("a", { staticClass: "btn signUp btn-primary" }, [
+                            _vm._v(_vm._s(_vm.$t("message.SUBSCRIBE")))
+                          ])
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ]
+              )
+            ]
+          )
         ])
-      ])
-    ]),
+      ]
+    ),
     _vm._v(" "),
     _vm._m(1)
   ])
@@ -53186,11 +53291,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "footer-social" }, [
-      _c("a", { staticClass: "custom-social-link ", attrs: { href: "" } }, [
+      _c("a", { staticClass: "custom-social-link", attrs: { href: "" } }, [
         _c("i", { staticClass: "fa fa-facebook facebook" })
       ]),
       _vm._v(" "),
-      _c("a", { staticClass: "custom-social-link ", attrs: { href: "" } }, [
+      _c("a", { staticClass: "custom-social-link", attrs: { href: "" } }, [
         _c("i", { staticClass: "fa fa-instagram instagram" })
       ])
     ])
@@ -53199,47 +53304,54 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row mt-5 mb-2 footer-img" }, [
-      _c(
-        "div",
-        { staticClass: "col-md-6", staticStyle: { "padding-left": "37px" } },
-        [_vm._v("\n            ©Naqsh\n        ")]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-6 mr-auto img" }, [
-        _c("img", {
-          attrs: {
-            src: "/images/iconfinder_24_Apple_Pay_4518982.png",
-            width: "40",
-            alt: "Pay"
-          }
-        }),
+    return _c(
+      "div",
+      {
+        staticClass: "row mt-5 mb-2 footer-img",
+        staticStyle: { direction: "ltr" }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "col-md-6", staticStyle: { "padding-left": "37px" } },
+          [_vm._v("©Naqsh")]
+        ),
         _vm._v(" "),
-        _c("img", {
-          attrs: {
-            src: "/images/iconfinder_Master_Card_380809.png",
-            width: "40",
-            alt: "master"
-          }
-        }),
-        _vm._v(" "),
-        _c("img", {
-          attrs: {
-            src: "/images/iconfinder_paypal_1220357.png",
-            width: "40",
-            alt: "paypal"
-          }
-        }),
-        _vm._v(" "),
-        _c("img", {
-          attrs: {
-            src: "/images/iconfinder_social_visa_406088.png",
-            width: "40",
-            alt: "visa"
-          }
-        })
-      ])
-    ])
+        _c("div", { staticClass: "col-md-6 mr-auto img" }, [
+          _c("img", {
+            attrs: {
+              src: "/images/iconfinder_24_Apple_Pay_4518982.png",
+              width: "40",
+              alt: "Pay"
+            }
+          }),
+          _vm._v(" "),
+          _c("img", {
+            attrs: {
+              src: "/images/iconfinder_Master_Card_380809.png",
+              width: "40",
+              alt: "master"
+            }
+          }),
+          _vm._v(" "),
+          _c("img", {
+            attrs: {
+              src: "/images/iconfinder_paypal_1220357.png",
+              width: "40",
+              alt: "paypal"
+            }
+          }),
+          _vm._v(" "),
+          _c("img", {
+            attrs: {
+              src: "/images/iconfinder_social_visa_406088.png",
+              width: "40",
+              alt: "visa"
+            }
+          })
+        ])
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -53266,7 +53378,9 @@ var render = function() {
   return _c("div", { staticClass: "text-center" }, [
     _vm.$i18n.locale == "en"
       ? _c("span", { on: { click: _vm.setLocale } }, [_vm._v("العربية")])
-      : _c("span", { on: { click: _vm.setLocale } }, [_vm._v("English")])
+      : _c("span", { staticClass: "en", on: { click: _vm.setLocale } }, [
+          _vm._v("English")
+        ])
   ])
 }
 var staticRenderFns = []
@@ -53293,7 +53407,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "nav",
-    { staticClass: "navbar navbar-expand-lg navbar-light px-3 sticky-top" },
+    {
+      staticClass: "navbar navbar-expand-lg navbar-light px-3 sticky-top",
+      staticStyle: { direction: "ltr" }
+    },
     [
       _c(
         "button",
@@ -53362,7 +53479,7 @@ var render = function() {
         },
         [
           _vm.$i18n.locale == "en"
-            ? _c("ul", { staticClass: "navbar-nav  mx-auto mt-2 mt-lg-0" }, [
+            ? _c("ul", { staticClass: "navbar-nav mx-auto mt-2 mt-lg-0" }, [
                 _c(
                   "li",
                   {
@@ -53372,7 +53489,11 @@ var render = function() {
                   [
                     _c("router-link", { attrs: { to: "/" } }, [
                       _c("a", { staticClass: "nav-link" }, [
-                        _vm._v(" " + _vm._s(_vm.$t("message.home"))),
+                        _vm._v(
+                          "\n            " +
+                            _vm._s(_vm.$t("message.home")) +
+                            "\n            "
+                        ),
                         _c("span", { staticClass: "sr-only" }, [
                           _vm._v("(current)")
                         ])
@@ -53413,7 +53534,7 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "li",
-                  { staticClass: "lang_sm about" },
+                  { class: { "lang_sm about": true } },
                   [
                     _c("LanguageDropdown", {
                       staticClass: "nav-link",
@@ -53423,7 +53544,7 @@ var render = function() {
                   1
                 )
               ])
-            : _c("ul", { staticClass: "navbar-nav  mx-auto mt-2 mt-lg-0" }, [
+            : _c("ul", { staticClass: "navbar-nav mx-auto mt-2 mt-lg-0" }, [
                 _c(
                   "li",
                   { staticClass: "nav-item about about_sm" },
@@ -53443,7 +53564,11 @@ var render = function() {
                       { staticClass: "sm", attrs: { to: "/" } },
                       [
                         _c("a", { staticClass: "nav-link" }, [
-                          _vm._v(" " + _vm._s(_vm.$t("message.home"))),
+                          _vm._v(
+                            "\n            " +
+                              _vm._s(_vm.$t("message.home")) +
+                              "\n            "
+                          ),
                           _c("span", { staticClass: "sr-only" }, [
                             _vm._v("(current)")
                           ])
@@ -53476,7 +53601,11 @@ var render = function() {
                       { staticClass: "lg", attrs: { to: "/" } },
                       [
                         _c("a", { staticClass: "nav-link" }, [
-                          _vm._v(" " + _vm._s(_vm.$t("message.home"))),
+                          _vm._v(
+                            "\n            " +
+                              _vm._s(_vm.$t("message.home")) +
+                              "\n            "
+                          ),
                           _c("span", { staticClass: "sr-only" }, [
                             _vm._v("(current)")
                           ])
@@ -53556,13 +53685,13 @@ var render = function() {
                     _c("div", { staticClass: "modal-content" }, [
                       _c("div", { staticClass: "modal-header" }, [
                         _c("h5", { staticClass: "modal-title" }, [
-                          _vm._v(" " + _vm._s(_vm.$t("message.cartname")))
+                          _vm._v(_vm._s(_vm.$t("message.cartname")))
                         ]),
                         _vm._v(" "),
                         _c(
                           "button",
                           {
-                            staticClass: "close",
+                            staticClass: "close mr-1",
                             attrs: {
                               type: "button",
                               "data-dismiss": "modal",
@@ -53631,7 +53760,7 @@ var render = function() {
                                 _vm._v(" "),
                                 _c(
                                   "div",
-                                  { staticClass: "col-md-sm-8 ml-3 " },
+                                  { staticClass: "col-md-sm-8 ml-3" },
                                   [
                                     _c("span", { staticClass: "move move1" }, [
                                       _c("strong", [
@@ -53645,11 +53774,7 @@ var render = function() {
                                         staticClass: "move",
                                         staticStyle: { "margin-top": "10px" }
                                       },
-                                      [
-                                        _vm._v(
-                                          " $" + _vm._s(item.price) + ".00"
-                                        )
-                                      ]
+                                      [_vm._v("$" + _vm._s(item.price) + ".00")]
                                     ),
                                     _vm._v(" "),
                                     _c(
@@ -53670,7 +53795,7 @@ var render = function() {
                                               callback: function($$v) {
                                                 _vm.$set(item, "quantity", $$v)
                                               },
-                                              expression: " item.quantity  "
+                                              expression: " item.quantity "
                                             }
                                           },
                                           [
@@ -53720,7 +53845,7 @@ var render = function() {
                                   _c(
                                     "button",
                                     {
-                                      staticClass: "ml-3 btn delete ",
+                                      staticClass: "ml-3 btn delete",
                                       on: {
                                         click: function($event) {
                                           $event.preventDefault()
@@ -53728,11 +53853,7 @@ var render = function() {
                                         }
                                       }
                                     },
-                                    [
-                                      _vm._v(
-                                        " " + _vm._s(_vm.$t("message.remove"))
-                                      )
-                                    ]
+                                    [_vm._v(_vm._s(_vm.$t("message.remove")))]
                                   )
                                 ])
                               ]
@@ -53765,22 +53886,23 @@ var render = function() {
                                   _c(
                                     "button",
                                     {
-                                      staticClass: "btn checkout",
+                                      staticClass: "btn checkout mb-6",
                                       staticStyle: { "font-size": "18px" },
                                       attrs: { type: "button" }
                                     },
                                     [
                                       _vm._v(
-                                        " " +
+                                        "\n                    " +
                                           _vm._s(_vm.$t("message.total")) +
                                           " : $ " +
                                           _vm._s(_vm.cartTotalPrice) +
-                                          "    "
+                                          "  \n                    "
                                       ),
                                       _c("strong", [_vm._v(".")]),
                                       _vm._v(
-                                        "    " +
-                                          _vm._s(_vm.$t("message.checkout"))
+                                        "\n                      " +
+                                          _vm._s(_vm.$t("message.checkout")) +
+                                          "\n                  "
                                       )
                                     ]
                                   )
@@ -100029,7 +100151,8 @@ __webpack_require__.r(__webpack_exports__);
           self: true
         },
         value: this.onScroll
-      }]
+      }],
+      on: this.$listeners
     }, [content]);
   }
 }));
@@ -102294,7 +102417,7 @@ function () {
 
   Vuetify.install = _install__WEBPACK_IMPORTED_MODULE_0__["install"];
   Vuetify.installed = false;
-  Vuetify.version = "2.3.9";
+  Vuetify.version = "2.3.10";
   Vuetify.config = {
     silent: false
   };
@@ -114059,44 +114182,45 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var routes = [{
-  path: '/',
-  name: 'home',
+  path: "/",
+  name: "home",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ../components/Page/Home */ "./resources/js/components/Page/Home.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ../components/Page/Home */ "./resources/js/components/Page/Home.vue"));
   }
 }, {
-  path: '/shop',
-  name: 'shop',
+  path: "/shop",
+  name: "shop",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ../components/Page/ShopArt */ "./resources/js/components/Page/ShopArt.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ../components/Page/ShopArt */ "./resources/js/components/Page/ShopArt.vue"));
   }
 }, {
-  path: '/about',
+  path: "/about",
+  name: "about",
   component: function component() {
     return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ../components/Page/AboutUs */ "./resources/js/components/Page/AboutUs.vue"));
   }
 }, {
-  path: '/terms',
+  path: "/terms",
   component: function component() {
     return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ../components/Page/Terms */ "./resources/js/components/Page/Terms.vue"));
   }
 }, {
-  path: '/privacy',
+  path: "/privacy",
   component: function component() {
     return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ../components/Page/Privacy */ "./resources/js/components/Page/Privacy.vue"));
   }
 }, {
-  path: '/refund',
+  path: "/refund",
   component: function component() {
     return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ../components/Page/Refund */ "./resources/js/components/Page/Refund.vue"));
   }
 }, {
-  path: '/payment',
+  path: "/payment",
   component: function component() {
     return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ../components/Page/Payment */ "./resources/js/components/Page/Payment.vue"));
   }
 }, {
-  path: '/joinus',
+  path: "/joinus",
   component: function component() {
     return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ../components/Page/JoinUs */ "./resources/js/components/Page/JoinUs.vue"));
   }
@@ -114105,7 +114229,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: routes,
   // short for `routes: routes`
   hashbang: false,
-  mode: 'history',
+  mode: "history",
   scrollBehavior: function scrollBehavior(to, from, savedPosition) {
     return {
       x: 0,
@@ -114225,7 +114349,7 @@ var messages = {
       // footer
       logo: "Naqsh",
       lorem: "lorem text"
-    }, _defineProperty(_message, "email", "E-mail"), _defineProperty(_message, "firstname", "First Name"), _defineProperty(_message, "lastname", "Last Name"), _defineProperty(_message, "address", "Address"), _defineProperty(_message, "appartment", "Apartment, Suite, etc. (optional)"), _defineProperty(_message, "city", "City"), _defineProperty(_message, "phone", "Phone"), _defineProperty(_message, "postcode", "Post Code "), _defineProperty(_message, "discount", "Discount"), _defineProperty(_message, "Aplly", "APPLY"), _defineProperty(_message, "subtotal", "Sub Total"), _defineProperty(_message, "total", "Total"), _defineProperty(_message, "calulated", "Calculated at next"), _defineProperty(_message, "toshipping", "Continue to Shipping"), _defineProperty(_message, "select_size", 'Please Select Size'), _defineProperty(_message, "showorder", 'Show Order Summary'), _defineProperty(_message, "hideorder", 'Hide Order Summary'), _defineProperty(_message, "empty", '      '), _defineProperty(_message, "addressfooter", 'Naqsh BV. Westplein 123016BM RotterdamThe Netherlands'), _defineProperty(_message, "shopfooter", 'Shop artworks'), _defineProperty(_message, "aboutfooter", 'About our products'), _defineProperty(_message, "carreerfooter", 'Careers'), _defineProperty(_message, "aboutusfooter", 'Our Mission'), _defineProperty(_message, "artistfooter", 'Our Artists'), _defineProperty(_message, "contactfooter", 'Contact us'), _defineProperty(_message, "termsfooter", 'Terms of use'), _defineProperty(_message, "privacyfooter", 'Privacy Policy'), _defineProperty(_message, "refundpolicy", 'Refund Policy'), _defineProperty(_message, "socialLink", 'SocialLink'), _defineProperty(_message, "solidout", 'SOLD OUT'), _defineProperty(_message, "support", 'Support'), _defineProperty(_message, "support_text", 'Do you have any questions? Have a look at the categories below, and if these dont include the answer you were looking for, please feel free to shoot us an email.'), _defineProperty(_message, "Product", 'Product'), _defineProperty(_message, "Shipping", 'Shipping'), _defineProperty(_message, "Collabs", 'Collabs'), _defineProperty(_message, "contact", 'Contact'), _defineProperty(_message, "product_text1", 'What are Walltones?'), _defineProperty(_message, "product_text2", 'What are Knitworks?'), _defineProperty(_message, "product_text3", 'How do I assemble my Walltone?'), _defineProperty(_message, "product_text4", 'How do I assemble my Knitwork?'), _defineProperty(_message, "product_text5", 'What are the exact dimensions/materials of my artwork?'), _defineProperty(_message, "product_text6", 'I need any tools to hang my artwork?'), _defineProperty(_message, "product_text7", 'Walltones are our affordable and easy to hang canvas posters. They come in three different sizes, always complete with a special magnetic frame. Each Walltone is part of a limited edition.'), _defineProperty(_message, "product_text8", 'Knitworks are luxurious artworks on fabric, often using a combination of printing and painting techniques. The fabric is stretchedinto a sturdy metal frame. Like Walltones, they are always part of a limited edition.'), _defineProperty(_message, "product_text9", 'Align the pairs of magnetic frames with the top and bottom of your artwork.The included adhesive strips or screw can be used to stick only the top frame, or both frames to your wall.'), _defineProperty(_message, "product_text10", 'You can find Knitwork assembly instructions on the manual inside the box.'), _defineProperty(_message, "product_text11", 'When you buy an artwork, you can find the specifications in the dropdown menus underneath the product description. If you have any questions not answered in there, feel free to ask us.'), _defineProperty(_message, "product_text12", 'If the included adhesive strips are not suitable for your wall,you can use the included screw and plug. Only when using the screw and plug you will need a drill and screwdriver.'), _defineProperty(_message, "ship_text1", 'Do you ship to my country?'), _defineProperty(_message, "ship_text2", 'What about returns and shipping time?'), _defineProperty(_message, "ship_text3", 'We ship worldwide. If you are worried that your country might not accept our products because of regulation or customs policies, please send us an email explaining the situation and we will try to find out what is the best solution.'), _defineProperty(_message, "ship_text4", 'After placing your order, the whole process of preparing, packing and shipping to your doorstep can take approximately 15 business days depending on your location. Orders get sent out within 24 hours on average, after which you wont be able to cancel our order since the package will already be in transit. You can however, return your package for a full refund within 30 days.'), _defineProperty(_message, "Collabs_text1", 'I am an artist, how can we work together?'), _defineProperty(_message, "Collabs_text2", 'I am an influencer, how can we work together?'), _defineProperty(_message, "Collabs_text3", 'Awesome! Please send us an email with a link to your portfolio, instagram,or any other media you want us to review. We will be happy to take a look.'), _defineProperty(_message, "Collabs_text4", 'We dont work with a lot of influencers, but if you connect with an audience that you think would love our brand, we are very open to talk about it. Please shoot us an email!'), _defineProperty(_message, "Terms", 'Terms'), _defineProperty(_message, "Terms_text1", 'What are the terms of this website?'), _defineProperty(_message, "Terms_text2", 'How do you treat my privacy?'), _defineProperty(_message, "Terms_text3", 'How can I get a refund?'), _defineProperty(_message, "Terms_text4", 'Read our terms'), _defineProperty(_message, "Terms_text5", 'Read our Privacy Policy'), _defineProperty(_message, "Terms_text6", 'Read our Refund Policy'), _defineProperty(_message, "noitem", 'There are no products. Please add an entry to complete the process!!'), _message)
+    }, _defineProperty(_message, "email", "E-mail"), _defineProperty(_message, "firstname", "First Name"), _defineProperty(_message, "lastname", "Last Name"), _defineProperty(_message, "address", "Address"), _defineProperty(_message, "appartment", "Apartment, Suite, etc. (optional)"), _defineProperty(_message, "city", "City"), _defineProperty(_message, "phone", "Phone"), _defineProperty(_message, "postcode", "Post Code "), _defineProperty(_message, "discount", "Discount"), _defineProperty(_message, "Aplly", "APPLY"), _defineProperty(_message, "subtotal", "Sub Total"), _defineProperty(_message, "total", "Total"), _defineProperty(_message, "calulated", "Calculated at next"), _defineProperty(_message, "toshipping", "Continue to Shipping"), _defineProperty(_message, "select_size", "Please Select Size"), _defineProperty(_message, "showorder", "Show Order Summary"), _defineProperty(_message, "hideorder", "Hide Order Summary"), _defineProperty(_message, "empty", "      "), _defineProperty(_message, "addressfooter", "Naqsh BV. Westplein 123016BM RotterdamThe Netherlands"), _defineProperty(_message, "shopfooter", "Shop artworks"), _defineProperty(_message, "aboutfooter", "About our products"), _defineProperty(_message, "carreerfooter", "Careers"), _defineProperty(_message, "aboutusfooter", "Our Mission"), _defineProperty(_message, "artistfooter", "Our Artists"), _defineProperty(_message, "contactfooter", "Contact us"), _defineProperty(_message, "termsfooter", "Terms of use"), _defineProperty(_message, "privacyfooter", "Privacy Policy"), _defineProperty(_message, "refundpolicy", "Refund Policy"), _defineProperty(_message, "socialLink", "SocialLink"), _defineProperty(_message, "solidout", "SOLD OUT"), _defineProperty(_message, "support", "Contact Us"), _defineProperty(_message, "support_text", "Do you have any questions? Have a look at the categories below, and if these dont include the answer you were looking for, please feel free to shoot us an email."), _defineProperty(_message, "Product", "Product"), _defineProperty(_message, "Shipping", "Shipping"), _defineProperty(_message, "Collabs", "Collabs"), _defineProperty(_message, "contact", "Contact"), _defineProperty(_message, "product_text1", "What are Walltones?"), _defineProperty(_message, "product_text2", "What are Knitworks?"), _defineProperty(_message, "product_text3", "How do I assemble my Walltone?"), _defineProperty(_message, "product_text4", "How do I assemble my Knitwork?"), _defineProperty(_message, "product_text5", "What are the exact dimensions/materials of my artwork?"), _defineProperty(_message, "product_text6", "I need any tools to hang my artwork?"), _defineProperty(_message, "product_text7", "Walltones are our affordable and easy to hang canvas posters. They come in three different sizes, always complete with a special magnetic frame. Each Walltone is part of a limited edition."), _defineProperty(_message, "product_text8", "Knitworks are luxurious artworks on fabric, often using a combination of printing and painting techniques. The fabric is stretchedinto a sturdy metal frame. Like Walltones, they are always part of a limited edition."), _defineProperty(_message, "product_text9", "Align the pairs of magnetic frames with the top and bottom of your artwork.The included adhesive strips or screw can be used to stick only the top frame, or both frames to your wall."), _defineProperty(_message, "product_text10", "You can find Knitwork assembly instructions on the manual inside the box."), _defineProperty(_message, "product_text11", "When you buy an artwork, you can find the specifications in the dropdown menus underneath the product description. If you have any questions not answered in there, feel free to ask us."), _defineProperty(_message, "product_text12", "If the included adhesive strips are not suitable for your wall,you can use the included screw and plug. Only when using the screw and plug you will need a drill and screwdriver."), _defineProperty(_message, "ship_text1", "Do you ship to my country?"), _defineProperty(_message, "ship_text2", "What about returns and shipping time?"), _defineProperty(_message, "ship_text3", "We ship worldwide. If you are worried that your country might not accept our products because of regulation or customs policies, please send us an email explaining the situation and we will try to find out what is the best solution."), _defineProperty(_message, "ship_text4", "After placing your order, the whole process of preparing, packing and shipping to your doorstep can take approximately 15 business days depending on your location. Orders get sent out within 24 hours on average, after which you wont be able to cancel our order since the package will already be in transit. You can however, return your package for a full refund within 30 days."), _defineProperty(_message, "Collabs_text1", "I am an artist, how can we work together?"), _defineProperty(_message, "Collabs_text2", "I am an influencer, how can we work together?"), _defineProperty(_message, "Collabs_text3", "Awesome! Please send us an email with a link to your portfolio, instagram,or any other media you want us to review. We will be happy to take a look."), _defineProperty(_message, "Collabs_text4", "We dont work with a lot of influencers, but if you connect with an audience that you think would love our brand, we are very open to talk about it. Please shoot us an email!"), _defineProperty(_message, "Terms", "Terms"), _defineProperty(_message, "Terms_text1", "What are the terms of this website?"), _defineProperty(_message, "Terms_text2", "How do you treat my privacy?"), _defineProperty(_message, "Terms_text3", "How can I get a refund?"), _defineProperty(_message, "Terms_text4", "Read our terms"), _defineProperty(_message, "Terms_text5", "Read our Privacy Policy"), _defineProperty(_message, "Terms_text6", "Read our Refund Policy"), _defineProperty(_message, "noitem", "There are no products. Please add an entry to complete the process!!"), _defineProperty(_message, "Print_material", "Print material:"), _defineProperty(_message, "Print_ink", "Print ink:"), _defineProperty(_message, "Print_finish", "Print finish:"), _defineProperty(_message, "Frame_material", "Frame material:"), _defineProperty(_message, "Frame_finish", "Frame finish:"), _message)
   },
   ar: {
     message: (_message2 = {
@@ -114256,7 +114380,7 @@ var messages = {
       checkreview: "هل كانت هذه المراجعة مفيدة",
       signup: "قم بالتسجيل للحصول على إشعار بالبريد الإلكتروني عند إصدار أعمال فنية محدودة جديدة.",
       Newsletter: " النشرة الإخبارية",
-      SUBSCRIBE: "إشتراك",
+      SUBSCRIBE: "انضم الينا",
       others: "اﻷخرين",
       company: "الشركه",
       Limitworks: "أعمال محدودة",
@@ -114280,7 +114404,7 @@ var messages = {
       // footer
       logo: "نقش",
       lorem: "نص تجريبى "
-    }, _defineProperty(_message2, "email", "البريد الإلكترونى"), _defineProperty(_message2, "firstname", "الاسم الأول "), _defineProperty(_message2, "lastname", "الاسم الأخير"), _defineProperty(_message2, "address", "العنوان"), _defineProperty(_message2, "appartment", "طاقم العمل "), _defineProperty(_message2, "city", "المدينه"), _defineProperty(_message2, "phone", "رقم الموبايل"), _defineProperty(_message2, "postcode", "الرمز البريدى"), _defineProperty(_message2, "discount", "الخصم"), _defineProperty(_message2, "Aplly", "الحصول"), _defineProperty(_message2, "subtotal", "الخصم"), _defineProperty(_message2, "total", "السعر الإجمالى"), _defineProperty(_message2, "calulated", "الحساب سيتم الكرة القادة "), _defineProperty(_message2, "toshipping", "متابعة الشراء"), _defineProperty(_message2, "select_size", 'من فضلك اختر الحجم'), _defineProperty(_message2, "showorder", ' إظهار ملخص الطلب'), _defineProperty(_message2, "hideorder", ' إخفاء ملخص الطلب'), _defineProperty(_message2, "empty", '      '), _defineProperty(_message2, "addressfooter", 'Naqsh BV. Westplein 123016BM RotterdamThe Netherlands'), _defineProperty(_message2, "shopfooter", 'تسوق الأعمال الفنية'), _defineProperty(_message2, "aboutfooter", 'حول منتجاتنا'), _defineProperty(_message2, "carreerfooter", 'وظائف'), _defineProperty(_message2, "aboutusfooter", 'معلومات عنا'), _defineProperty(_message2, "artistfooter", 'الفنانون'), _defineProperty(_message2, "contactfooter", 'اتصل بنا'), _defineProperty(_message2, "termsfooter", 'شروط الاستخدام'), _defineProperty(_message2, "privacyfooter", 'سياسة خاصة'), _defineProperty(_message2, "refundpolicy", 'سياسة الاسترجاع'), _defineProperty(_message2, "socialLink", 'رابط التواصل اﻷجتماعي'), _defineProperty(_message2, "solidout", 'نفذت الكميه'), _defineProperty(_message2, "support", 'ألدعم'), _defineProperty(_message2, "support_text", ' هل لديك اسئلة؟ ألق نظرة على الفئات أدناه ، وإذا كانت لا تتضمن الإجابة التي كنت تبحث عنها ، فلا تتردد في إرسال بريد إلكتروني إلينا.'), _defineProperty(_message2, "Product", 'المنتج'), _defineProperty(_message2, "Shipping", 'الشحن'), _defineProperty(_message2, "Collabs", 'تعاون'), _defineProperty(_message2, "contact", 'اتصل بنا'), _defineProperty(_message2, "product_text1", ' ؟ Walltones ما هو'), _defineProperty(_message2, "product_text2", '؟ Knitworks ما هو'), _defineProperty(_message2, "product_text3", 'كيف اقوم بتجميع نغمه walltone الخاصه بي ؟'), _defineProperty(_message2, "product_text4", '  كيف أقوم بتجميع Knitwork الخاص بي؟'), _defineProperty(_message2, "product_text5", 'ما هي الأبعاد / المواد الدقيقة لأعمالي الفنية؟'), _defineProperty(_message2, "product_text6", 'أحتاج إلى أي أدوات لتعليق أعمالي الفنية؟'), _defineProperty(_message2, "product_text7", 'Walltones هي ملصقاتنا بأسعار معقولة وسهلة التعليق. تأتي في ثلاثة أحجام مختلفة ، كاملة دائمًا بإطار مغناطيسي خاص. كل Walltone جزء من إصدار محدود.'), _defineProperty(_message2, "product_text8", ' أعمال التريكو هي أعمال فنية فاخرة على القماش ، غالبًا ما تستخدم مزيجًا من تقنيات الطباعة والطلاء. تمدد القماش في إطار معدني قوي. مثل Walltones ، فهي دائمًا جزء من إصدار محدود.'), _defineProperty(_message2, "product_text9", ' قم بمحاذاة أزواج الإطارات المغناطيسية مع الجزء العلوي والسفلي من عملك الفني. يمكن استخدام الشرائط اللاصقة أو اللولب المتضمن في لصق الإطار العلوي فقط ، أو كلا الإطارين على الحائط.'), _defineProperty(_message2, "product_text10", ' يمكنك العثور على تعليمات تجميع Knitwork في الدليل الموجود داخل الصندوق.'), _defineProperty(_message2, "product_text11", ' عند شراء عمل فني ، يمكنك العثور على المواصفات في القوائم المنسدلة أسفل وصف المنتج. إذا كانت لديك أية أسئلة لم تتم الإجابة عليها ، فلا تتردد في طرحها علينا.'), _defineProperty(_message2, "product_text12", ' إذا كانت الشرائط اللاصقة المرفقة غير مناسبة لجدارك ، يمكنك استخدام المسمار والمكونات المدرجة. ستحتاج إلى مثقاب ومفك فقط عند استخدام المسمار والمقبس.'), _defineProperty(_message2, "ship_text1", 'هل تشحن إلى بلدي؟'), _defineProperty(_message2, "ship_text2", 'ماذا عن المرتجعات ووقت الشحن؟'), _defineProperty(_message2, "ship_text3", ' نحن نشحن عالميا. إذا كنت قلقًا من أن بلدك قد لا يقبل منتجاتنا لأن التنظيم أو السياسات الجمركية ، يرجى إرسال بريد إلكتروني إلينا لشرح الوضع وسنقوم بذلك حاول معرفة الحل الأفضل.'), _defineProperty(_message2, "ship_text4", ' بعد وضع طلبك ، تتم عملية التحضير والتعبئة والشحن بأكملها إلى باب منزلك يمكن أن يستغرق ما يقرب من 15 يوم عمل حسب موقعك. يتم إرسال الطلبات في غضون 24 ساعة في المتوسط ​​، وبعد ذلك لن تتمكن من الإلغاء نظامنا لأن الحزمة ستكون بالفعل في العبور. ومع ذلك ، يمكنك إرجاع حزمة لاسترداد كامل في غضون 30 يوما.'), _defineProperty(_message2, "Collabs_text1", 'أنا فنان ، كيف يمكننا العمل معًا؟ '), _defineProperty(_message2, "Collabs_text2", 'أنا مؤثر ، كيف يمكننا العمل معًا؟'), _defineProperty(_message2, "Collabs_text3", ' ممتاز! يرجى إرسال بريد إلكتروني إلينا مع رابط لمحفظتك ، إنستجرام ، أو أي وسائط أخرى تريد منا مراجعتها. سنكون سعداء لإلقاء نظرة.'), _defineProperty(_message2, "Collabs_text4", ' نحن لا نعمل مع الكثير من المؤثرين ، ولكن إذا تواصلت مع جمهور التي تعتقد أنها ستحب علامتنا التجارية ، نحن منفتحون جدًا للحديث عنها. يرجى مراسلتنا عبر البريد الإلكتروني!'), _defineProperty(_message2, "Terms", 'الشروط'), _defineProperty(_message2, "Terms_text1", 'ما هي شروط الموقع'), _defineProperty(_message2, "Terms_text2", 'كيف تتعامل مع خصوصيتك'), _defineProperty(_message2, "Terms_text3", 'كيف يمكنني استرداد اﻷموال'), _defineProperty(_message2, "Terms_text4", 'اقرأ شروط الموقع'), _defineProperty(_message2, "Terms_text5", 'اقرأ سياسة الخصوصية'), _defineProperty(_message2, "Terms_text6", 'اقرأ سياسة اﻷسترداد'), _defineProperty(_message2, "noitem", '!! لا يوجد منتجات. الرجاء إضافة منتج لإكمال العملية'), _message2)
+    }, _defineProperty(_message2, "email", "البريد الإلكترونى"), _defineProperty(_message2, "firstname", "الاسم الأول "), _defineProperty(_message2, "lastname", "الاسم الأخير"), _defineProperty(_message2, "address", "العنوان"), _defineProperty(_message2, "appartment", "طاقم العمل "), _defineProperty(_message2, "city", "المدينه"), _defineProperty(_message2, "phone", "رقم الموبايل"), _defineProperty(_message2, "postcode", "الرمز البريدى"), _defineProperty(_message2, "discount", "الخصم"), _defineProperty(_message2, "Aplly", "الحصول"), _defineProperty(_message2, "subtotal", "الخصم"), _defineProperty(_message2, "total", "السعر الإجمالى"), _defineProperty(_message2, "calulated", "الحساب سيتم الكرة القادة "), _defineProperty(_message2, "toshipping", "متابعة الشراء"), _defineProperty(_message2, "select_size", "من فضلك اختر الحجم"), _defineProperty(_message2, "showorder", " إظهار ملخص الطلب"), _defineProperty(_message2, "hideorder", " إخفاء ملخص الطلب"), _defineProperty(_message2, "empty", "      "), _defineProperty(_message2, "addressfooter", "Naqsh BV. Westplein 123016BM RotterdamThe Netherlands"), _defineProperty(_message2, "shopfooter", "تسوق الأعمال الفنية"), _defineProperty(_message2, "aboutfooter", "حول منتجاتنا"), _defineProperty(_message2, "carreerfooter", "وظائف"), _defineProperty(_message2, "aboutusfooter", "معلومات عنا"), _defineProperty(_message2, "artistfooter", "الفنانون"), _defineProperty(_message2, "contactfooter", "اتصل بنا"), _defineProperty(_message2, "termsfooter", "شروط الاستخدام"), _defineProperty(_message2, "privacyfooter", "سياسة خاصة"), _defineProperty(_message2, "refundpolicy", "سياسة الاسترجاع"), _defineProperty(_message2, "socialLink", "رابط التواصل اﻷجتماعي"), _defineProperty(_message2, "solidout", "نفذت الكميه"), _defineProperty(_message2, "support", "تواصل معنا"), _defineProperty(_message2, "support_text", " هل لديك اسئلة؟ ألق نظرة على الفئات أدناه ، وإذا كانت لا تتضمن الإجابة التي كنت تبحث عنها ، فلا تتردد في إرسال بريد إلكتروني إلينا."), _defineProperty(_message2, "Product", "المنتج"), _defineProperty(_message2, "Shipping", "الشحن"), _defineProperty(_message2, "Collabs", "تعاون"), _defineProperty(_message2, "contact", "اتصل بنا"), _defineProperty(_message2, "product_text1", " ؟ Walltones ما هو"), _defineProperty(_message2, "product_text2", "؟ Knitworks ما هو"), _defineProperty(_message2, "product_text3", "كيف اقوم بتجميع نغمه walltone الخاصه بي ؟"), _defineProperty(_message2, "product_text4", "  كيف أقوم بتجميع Knitwork الخاص بي؟"), _defineProperty(_message2, "product_text5", "ما هي الأبعاد / المواد الدقيقة لأعمالي الفنية؟"), _defineProperty(_message2, "product_text6", "أحتاج إلى أي أدوات لتعليق أعمالي الفنية؟"), _defineProperty(_message2, "product_text7", "Walltones هي ملصقاتنا بأسعار معقولة وسهلة التعليق. تأتي في ثلاثة أحجام مختلفة ، كاملة دائمًا بإطار مغناطيسي خاص. كل Walltone جزء من إصدار محدود."), _defineProperty(_message2, "product_text8", " أعمال التريكو هي أعمال فنية فاخرة على القماش ، غالبًا ما تستخدم مزيجًا من تقنيات الطباعة والطلاء. تمدد القماش في إطار معدني قوي. مثل Walltones ، فهي دائمًا جزء من إصدار محدود."), _defineProperty(_message2, "product_text9", " قم بمحاذاة أزواج الإطارات المغناطيسية مع الجزء العلوي والسفلي من عملك الفني. يمكن استخدام الشرائط اللاصقة أو اللولب المتضمن في لصق الإطار العلوي فقط ، أو كلا الإطارين على الحائط."), _defineProperty(_message2, "product_text10", " يمكنك العثور على تعليمات تجميع Knitwork في الدليل الموجود داخل الصندوق."), _defineProperty(_message2, "product_text11", " عند شراء عمل فني ، يمكنك العثور على المواصفات في القوائم المنسدلة أسفل وصف المنتج. إذا كانت لديك أية أسئلة لم تتم الإجابة عليها ، فلا تتردد في طرحها علينا."), _defineProperty(_message2, "product_text12", " إذا كانت الشرائط اللاصقة المرفقة غير مناسبة لجدارك ، يمكنك استخدام المسمار والمكونات المدرجة. ستحتاج إلى مثقاب ومفك فقط عند استخدام المسمار والمقبس."), _defineProperty(_message2, "ship_text1", "هل تشحن إلى بلدي؟"), _defineProperty(_message2, "ship_text2", "ماذا عن المرتجعات ووقت الشحن؟"), _defineProperty(_message2, "ship_text3", " نحن نشحن عالميا. إذا كنت قلقًا من أن بلدك قد لا يقبل منتجاتنا لأن التنظيم أو السياسات الجمركية ، يرجى إرسال بريد إلكتروني إلينا لشرح الوضع وسنقوم بذلك حاول معرفة الحل الأفضل."), _defineProperty(_message2, "ship_text4", " بعد وضع طلبك ، تتم عملية التحضير والتعبئة والشحن بأكملها إلى باب منزلك يمكن أن يستغرق ما يقرب من 15 يوم عمل حسب موقعك. يتم إرسال الطلبات في غضون 24 ساعة في المتوسط ​​، وبعد ذلك لن تتمكن من الإلغاء نظامنا لأن الحزمة ستكون بالفعل في العبور. ومع ذلك ، يمكنك إرجاع حزمة لاسترداد كامل في غضون 30 يوما."), _defineProperty(_message2, "Collabs_text1", "أنا فنان ، كيف يمكننا العمل معًا؟ "), _defineProperty(_message2, "Collabs_text2", "أنا مؤثر ، كيف يمكننا العمل معًا؟"), _defineProperty(_message2, "Collabs_text3", " ممتاز! يرجى إرسال بريد إلكتروني إلينا مع رابط لمحفظتك ، إنستجرام ، أو أي وسائط أخرى تريد منا مراجعتها. سنكون سعداء لإلقاء نظرة."), _defineProperty(_message2, "Collabs_text4", " نحن لا نعمل مع الكثير من المؤثرين ، ولكن إذا تواصلت مع جمهور التي تعتقد أنها ستحب علامتنا التجارية ، نحن منفتحون جدًا للحديث عنها. يرجى مراسلتنا عبر البريد الإلكتروني!"), _defineProperty(_message2, "Terms", "الشروط"), _defineProperty(_message2, "Terms_text1", "ما هي شروط الموقع"), _defineProperty(_message2, "Terms_text2", "كيف تتعامل مع خصوصيتك"), _defineProperty(_message2, "Terms_text3", "كيف يمكنني استرداد اﻷموال"), _defineProperty(_message2, "Terms_text4", "اقرأ شروط الموقع"), _defineProperty(_message2, "Terms_text5", "اقرأ سياسة الخصوصية"), _defineProperty(_message2, "Terms_text6", "اقرأ سياسة اﻷسترداد"), _defineProperty(_message2, "noitem", "!! لا يوجد منتجات. الرجاء إضافة منتج لإكمال العملية"), _defineProperty(_message2, "Print_material", "خامات الطباعة"), _defineProperty(_message2, "Print_ink", "حبر الطباعة"), _defineProperty(_message2, "Print_finish", "اللمسة النهائية للطباعة"), _defineProperty(_message2, "Frame_material", "معدن الاطار"), _defineProperty(_message2, "Frame_finish", "اللمسة النهائية للاطار"), _message2)
   }
 };
 var i18n = new vue_i18n__WEBPACK_IMPORTED_MODULE_1__["default"]({
@@ -114486,7 +114610,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_style_index_0_id_78547fe5_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Footer.vue?vue&type=style&index=0&id=78547fe5&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Layout/Footer.vue?vue&type=style&index=0&id=78547fe5&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_style_index_0_id_78547fe5_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_style_index_0_id_78547fe5_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_style_index_0_id_78547fe5_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_style_index_0_id_78547fe5_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_style_index_0_id_78547fe5_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_style_index_0_id_78547fe5_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_style_index_0_id_78547fe5_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
@@ -114573,7 +114697,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LanguageDropdown_vue_vue_type_style_index_0_id_3f099f5a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./LanguageDropdown.vue?vue&type=style&index=0&id=3f099f5a&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Layout/LanguageDropdown.vue?vue&type=style&index=0&id=3f099f5a&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LanguageDropdown_vue_vue_type_style_index_0_id_3f099f5a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LanguageDropdown_vue_vue_type_style_index_0_id_3f099f5a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LanguageDropdown_vue_vue_type_style_index_0_id_3f099f5a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LanguageDropdown_vue_vue_type_style_index_0_id_3f099f5a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LanguageDropdown_vue_vue_type_style_index_0_id_3f099f5a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LanguageDropdown_vue_vue_type_style_index_0_id_3f099f5a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LanguageDropdown_vue_vue_type_style_index_0_id_3f099f5a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
@@ -114660,7 +114784,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Navbar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Navbar.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Layout/Navbar.vue?vue&type=style&index=0&lang=css&");
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Navbar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Navbar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Navbar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Navbar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Navbar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Navbar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Navbar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
@@ -114989,8 +115113,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\HP\Desktop\New folder (3)\ARTWORKS\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\HP\Desktop\New folder (3)\ARTWORKS\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/ahmedhegazy/Desktop/lar/artworks/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/ahmedhegazy/Desktop/lar/artworks/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

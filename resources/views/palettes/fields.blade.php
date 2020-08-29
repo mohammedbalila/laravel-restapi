@@ -46,7 +46,7 @@
     {!! Form::label('S_price', 'S Price:') !!}
     {!! Form::text('S_price', null, ['class' => 'form-control','required']) !!}
 </div>
-
+<div class="clearfix"></div>
 <!-- M Copies Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('M_copies', 'M Copies:') !!}
@@ -64,7 +64,7 @@
     {!! Form::label('M_price', 'M Price:') !!}
     {!! Form::text('M_price', null, ['class' => 'form-control','required']) !!}
 </div>
-
+<div class="clearfix"></div>
 <!-- L Copies Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('L_copies', 'L Copies:') !!}
@@ -82,11 +82,15 @@
     {!! Form::label('L_price', 'L Price:') !!}
     {!! Form::text('L_price', null, ['class' => 'form-control','required']) !!}
 </div>
-
+<div class="clearfix"></div>
 <!-- Sizing Details Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('sizing_details', 'Sizing Details:') !!}
     {!! Form::text('sizing_details', null, ['class' => 'form-control','required']) !!}
+</div>
+<div class="form-group col-sm-6">
+    {!! Form::label('sizing_details_ar', 'Sizing Details(Ar):') !!}
+    {!! Form::text('sizing_details_ar', null, ['class' => 'form-control','required']) !!}
 </div>
 
 <!-- Print Material Field -->
@@ -94,11 +98,19 @@
     {!! Form::label('print_material', 'Print Material:') !!}
     {!! Form::text('print_material', null, ['class' => 'form-control','required']) !!}
 </div>
+<div class="form-group col-sm-6">
+    {!! Form::label('print_material_ar', 'Print Material(Ar):') !!}
+    {!! Form::text('print_material_ar', null, ['class' => 'form-control','required']) !!}
+</div>
 
 <!-- Print Ink Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('print_ink', 'Print Ink:') !!}
     {!! Form::text('print_ink', null, ['class' => 'form-control','required']) !!}
+</div>
+<div class="form-group col-sm-6">
+    {!! Form::label('print_ink_ar', 'Print Ink(Ar):') !!}
+    {!! Form::text('print_ink_ar', null, ['class' => 'form-control','required']) !!}
 </div>
 
 <!-- Print Finish Field -->
@@ -106,11 +118,19 @@
     {!! Form::label('print_finish', 'Print Finish:') !!}
     {!! Form::text('print_finish', null, ['class' => 'form-control','required']) !!}
 </div>
+<div class="form-group col-sm-6">
+    {!! Form::label('print_finish_ar', 'Print Finish(Ar):') !!}
+    {!! Form::text('print_finish_ar', null, ['class' => 'form-control','required']) !!}
+</div>
 
 <!-- Frame Material Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('frame_material', 'Frame Material:') !!}
     {!! Form::text('frame_material', null, ['class' => 'form-control','required']) !!}
+</div>
+<div class="form-group col-sm-6">
+    {!! Form::label('frame_material_ar', 'Frame Material(Ar):') !!}
+    {!! Form::text('frame_material_ar', null, ['class' => 'form-control','required']) !!}
 </div>
 
 <!-- Frame Finish Field -->
@@ -118,10 +138,32 @@
     {!! Form::label('frame_finish', 'Frame Finish:') !!}
     {!! Form::text('frame_finish', null, ['class' => 'form-control','required']) !!}
 </div>
+<div class="form-group col-sm-6">
+    {!! Form::label('frame_finish_ar', 'Frame Finish(Ar):') !!}
+    {!! Form::text('frame_finish_ar', null, ['class' => 'form-control','required']) !!}
+</div>
+<!-- Frame Shipping Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('shipping', 'Shipping:') !!}
+    {!! Form::textarea('shipping', null, ['class' => 'form-control','required']) !!}
+</div>
+<div class="form-group col-sm-6">
+    {!! Form::label('shipping_ar', 'Shipping(Ar):') !!}
+    {!! Form::textarea('shipping_ar', null, ['class' => 'form-control','required','style'=>'direction: rtl']) !!}
+</div>
+<!-- Description-->
+<div class="form-group col-sm-6">
+    {!! Form::label('description', 'Description:') !!}
+    {!! Form::textarea('description',null, ['class' => 'form-control','required']) !!}
+</div>
+<div class="form-group col-sm-6">
+    {!! Form::label('description_ar', 'Description(Ar):') !!}
+    {!! Form::textarea('description_ar',null, ['class' => 'form-control','required','style'=>'direction: rtl']) !!}
+</div>
 
 <!-- Artist Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('artist_id', 'Artist Id:') !!}
+    {!! Form::label('artist_id', 'Artist :') !!}
     {!! Form::select('artist_id', $artistItems, null, ['class' => 'form-control','required']) !!}
 </div>
 

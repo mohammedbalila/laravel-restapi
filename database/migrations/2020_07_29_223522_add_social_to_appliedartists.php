@@ -14,7 +14,7 @@ class AddSocialToAppliedartists extends Migration
     public function up()
     {
         Schema::table('appliedartists', function (Blueprint $table) {
-            $table->string('socialLink');
+            $table->string('socialLink')->nullable();
         });
     }
 

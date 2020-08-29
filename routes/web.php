@@ -18,19 +18,19 @@ use App\Http\Middleware\CheckAdmin;
 
 Auth::routes();
 
-Route::view('/','userLayout.home');
+Route::view('/', 'userLayout.home');
 Route::group(['middleware' => 'isadmin'], function () {
     Route::get('/admin', 'AdminController@index')->name("admin.index");
     Route::resource('appliedartists', 'AppliedartistController');
     Route::resource('artists', 'ArtistController');
-    Route::resource('reviews', 'ReviewController');
+    // Route::resource('reviews', 'ReviewController');
     Route::resource('palettes', 'PaletteController');
     Route::resource('paletteimages', 'PaletteimageController');
 
     Route::get('orders', 'OrderController@index');
     Route::get('appliedorders/{id?}', 'OrderController@orderindex')->name('appliedorder.show');
 
-    Route::get('addpaletteimages/{palette?}/create','PaletteimageController@create')->name("addimgpalette");
+    Route::get('addpaletteimages/{palette?}/create', 'PaletteimageController@create')->name("addimgpalette");
     Route::get('changeStatus', 'UserController@changeStatus');
     Route::get('users', 'UserController@index');
     Route::get('changeStatus', 'UserController@changeStatus');
@@ -42,14 +42,13 @@ Route::group(['middleware' => 'isadmin'], function () {
     Route::resource('discounts', 'DiscountController');
     Route::resource('aboutContactsTexts', 'About_Contacts_TextController');
     Route::resource('joinusTexts', 'joinus_TextController');
-
 });
 Route::get('orders', 'OrderController@index')->middleware('modirator');
 Route::get('appliedorders/{id?}', 'OrderController@orderindex')->name('appliedorder.show')->middleware('modirator');
 
 Route::get('/home', 'HomeController@index')->name("home.index");
-Route::post('reviews-api','ReviewController@store');
-Route::post('aboutContacts-api','About_ContactController@store');
+Route::post('reviews-api', 'ReviewController@store');
+Route::post('aboutContacts-api', 'About_ContactController@store');
 Route::get('/home', 'HomeController@index')->middleware('verified')->name("home.index");
 Route::get('/', 'HomeController@index');
 
@@ -60,10 +59,6 @@ Route::post('like', 'ReviewController@like');
 Route::post('dislike', 'ReviewController@dislike');
 
 
-Route::get('payment/{id?}', function ($id=null) {
-
+Route::get('payment/{id?}', function ($id = null) {
 })->name('payment');
-Route::view('/{any}','userLayout.home');
-
-
-
+Route::view('/{any}', 'userLayout.home');
